@@ -1,0 +1,296 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Lua KV</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Lua KV</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>kv.bytes</strong></li>
+  <li><a href="../modules/kv.midi.html">kv.midi</a></li>
+  <li><a href="../modules/kv.object.html">kv.object</a></li>
+  <li><a href="../modules/kv.round.html">kv.round</a></li>
+  <li><a href="../modules/kv.slug.html">kv.slug</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/kv.AudioBuffer.html">kv.AudioBuffer</a></li>
+  <li><a href="../classes/kv.Bounds.html">kv.Bounds</a></li>
+  <li><a href="../classes/kv.Desktop.html">kv.Desktop</a></li>
+  <li><a href="../classes/kv.DocumentWindow.html">kv.DocumentWindow</a></li>
+  <li><a href="../classes/kv.Graphics.html">kv.Graphics</a></li>
+  <li><a href="../classes/kv.MidiBuffer.html">kv.MidiBuffer</a></li>
+  <li><a href="../classes/kv.MidiMessage.html">kv.MidiMessage</a></li>
+  <li><a href="../classes/kv.MouseEvent.html">kv.MouseEvent</a></li>
+  <li><a href="../classes/kv.Point.html">kv.Point</a></li>
+  <li><a href="../classes/kv.Rectangle.html">kv.Rectangle</a></li>
+  <li><a href="../classes/kv.Slider.html">kv.Slider</a></li>
+  <li><a href="../classes/kv.TextButton.html">kv.TextButton</a></li>
+  <li><a href="../classes/kv.Widget.html">kv.Widget</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>kv.bytes</code></h1>
+<p>MIDI utilities.</p>
+<p>
+
+</p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Author</strong>: Michael Fisher</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#new">new (size)</a></td>
+	<td class="summary">Create a new byte array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#free">free (bytes)</a></td>
+	<td class="summary">Free used memory.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#get">get (bytes, index)</a></td>
+	<td class="summary">Get a byte from the array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#set">set (bytes, index, value)</a></td>
+	<td class="summary">Set a byte in the array.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#size">size (bytes)</a></td>
+	<td class="summary">Returns the size in bytes.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#pack">pack (b1, b2, b3, b4)</a></td>
+	<td class="summary">Pack 4 bytes in a 64bit integer.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+    Methods
+    <dl class="function">
+    <dt>
+    <a name = "new"></a>
+    <strong>new (size)</strong>
+    </dt>
+    <dd>
+    Create a new byte array.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">size</span>
+            <span class="types"><span class="type">int</span></span>
+         Size in bytes to allocate
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">kv.ByteArray</span></span>
+        The new byte array.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "free"></a>
+    <strong>free (bytes)</strong>
+    </dt>
+    <dd>
+    Free used memory.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bytes</span>
+         The array to free
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "get"></a>
+    <strong>get (bytes, index)</strong>
+    </dt>
+    <dd>
+    Get a byte from the array.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bytes</span>
+         Bytes to get from
+        </li>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">int</span></span>
+         Index in the array
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "set"></a>
+    <strong>set (bytes, index, value)</strong>
+    </dt>
+    <dd>
+    Set a byte in the array.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bytes</span>
+         Target bytes
+        </li>
+        <li><span class="parameter">index</span>
+            <span class="types"><span class="type">int</span></span>
+         Index in the array
+        </li>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">int</span></span>
+         Value to set in the range 0x00 to 0xFF inclusive
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "size"></a>
+    <strong>size (bytes)</strong>
+    </dt>
+    <dd>
+    Returns the size in bytes.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">bytes</span>
+         Target bytes
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The size in bytes.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "pack"></a>
+    <strong>pack (b1, b2, b3, b4)</strong>
+    </dt>
+    <dd>
+    Pack 4 bytes in a 64bit integer.
+ Undefined params are treated as zero
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b1</span>
+            <span class="types"><span class="type">int</span></span>
+         First byte
+        </li>
+        <li><span class="parameter">b2</span>
+            <span class="types"><span class="type">int</span></span>
+         Second byte
+        </li>
+        <li><span class="parameter">b3</span>
+            <span class="types"><span class="type">int</span></span>
+         Third byte
+        </li>
+        <li><span class="parameter">b4</span>
+            <span class="types"><span class="type">int</span></span>
+         Fourth byte
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        Packed integer
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:21:27 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

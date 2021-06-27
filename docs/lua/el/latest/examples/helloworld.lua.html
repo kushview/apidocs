@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><strong>helloworld.lua</strong></li>
+  <li><a href="../examples/sysex.lua.html">sysex.lua</a></li>
+  <li><a href="../examples/sysexui.lua.html">sysexui.lua</a></li>
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/amp.html">amp</a></li>
+  <li><a href="../scripts/ampui.html">ampui</a></li>
+  <li><a href="../scripts/commands.html">commands</a></li>
+  <li><a href="../scripts/console.html">console</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.CommandManager.html">el.CommandManager</a></li>
+  <li><a href="../classes/el.Globals.html">el.Globals</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>helloworld.lua</h2>
+<pre>
+<span class="comment">--- Show a custom widget in a window.
+</span><span class="comment">-- The return value is the displayed kv.DocumentWindow or nil
+</span><span class="comment">-- @script helloworld
+</span><span class="comment">-- @usage
+</span><span class="comment">-- local win = script.exec ('helloworld')
+</span>
+<span class="keyword">local</span> object            = <span class="global">require</span> (<span class="string">'kv.object'</span>)
+<span class="keyword">local</span> DocumentWindow    = <span class="global">require</span> (<span class="string">'kv.DocumentWindow'</span>)
+<span class="keyword">local</span> TextButton        = <span class="global">require</span> (<span class="string">'kv.TextButton'</span>)
+<span class="keyword">local</span> Widget            = <span class="global">require</span> (<span class="string">'kv.Widget'</span>)
+<span class="keyword">local</span> new = object.new
+
+<span class="keyword">local</span> colors = {
+    text        = <span class="number">0xffffffff</span>,
+    background  = <span class="number">0xff545454</span>
+}
+
+<span class="keyword">local</span> Label = object (Widget, {
+    text = {
+        set = <span class="keyword">function</span> (self, value)
+            <span class="global">rawset</span> (self, <span class="string">'_text'</span>, value)
+            self:repaint()
+        <span class="keyword">end</span>,
+        get = <span class="keyword">function</span> (self)
+            <span class="keyword">return</span> <span class="global">rawget</span> (self, <span class="string">'_text'</span>) <span class="keyword">or</span> <span class="string">""</span>
+        <span class="keyword">end</span>
+    }
+})
+
+<span class="keyword">function</span> Label:init()
+    Widget.init (self)
+    self.text = <span class="string">""</span>
+    self:resize (<span class="number">100</span>, <span class="number">100</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> Label:paint (g)
+    g:color (colors.text)
+    g:drawtext (self.text, <span class="number">0</span>, <span class="number">0</span>, self.width, self.height)
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> HelloWorld = object (Widget)
+<span class="keyword">function</span> HelloWorld:init()
+    Widget.init (self)
+    self.name = <span class="string">"HelloWorld"</span>
+
+    <span class="keyword">local</span> label = new (Label)
+    label.name = <span class="string">"DisplayLabel"</span>
+    label.text = <span class="string">"Hello world..."</span>
+    self.original_text = label.text
+    self.label_height = <span class="number">32</span>
+    self.label_width  = <span class="number">120</span>
+    self.label = self:add (label)
+
+    self.button = new (TextButton)
+    self.button.text = <span class="string">"Close"</span>
+    self.button.name = <span class="string">"TextButton"</span>
+    self.button:resize (<span class="number">90</span>, <span class="number">24</span>)
+
+    self:add (self.button, <span class="number">9999</span>)
+    self:resize (<span class="number">640</span>, <span class="number">360</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> HelloWorld:resized()
+    <span class="keyword">local</span> r = self.localbounds:reduced (<span class="number">8</span>)
+    self.button.bounds = r:slicebottom (<span class="number">30</span>)
+                          :sliceright (<span class="number">90</span>)
+    self.label.bounds  = r:reduced (<span class="number">20</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> HelloWorld:paint (g)
+    g:fillall (colors.background)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> HelloWorld:mousedown (ev)
+    self.label.text = <span class="string">"HELLO WORLD..."</span>
+    self.label_height = <span class="number">44</span>
+    self.label_width  = <span class="number">130</span>
+    self:resized()
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> HelloWorld:mouseup (ev)
+    self.label.text = self.original_text
+    self.label_height = <span class="number">32</span>
+    self.label_width  = <span class="number">120</span>
+    self:resized()
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> win = new (DocumentWindow)
+
+<span class="keyword">local</span> <span class="keyword">function</span> closewindow()
+    <span class="keyword">if</span> <span class="keyword">not</span> win <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+    win.visible = <span class="keyword">false</span>
+    win = <span class="keyword">nil</span>
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> win:closepressed()
+    closewindow()
+<span class="keyword">end</span>
+
+win.content = new (HelloWorld)
+win.content.button.clicked = closewindow
+win.visible = <span class="keyword">true</span>
+
+<span class="keyword">return</span> win</pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:21:27 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

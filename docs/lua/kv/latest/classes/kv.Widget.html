@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Lua KV</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Lua KV</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/kv.AudioBuffer.html">kv.AudioBuffer</a></li>
+  <li><a href="../classes/kv.Bounds.html">kv.Bounds</a></li>
+  <li><a href="../classes/kv.Desktop.html">kv.Desktop</a></li>
+  <li><a href="../classes/kv.DocumentWindow.html">kv.DocumentWindow</a></li>
+  <li><a href="../classes/kv.Graphics.html">kv.Graphics</a></li>
+  <li><a href="../classes/kv.MidiBuffer.html">kv.MidiBuffer</a></li>
+  <li><a href="../classes/kv.MidiMessage.html">kv.MidiMessage</a></li>
+  <li><a href="../classes/kv.MouseEvent.html">kv.MouseEvent</a></li>
+  <li><a href="../classes/kv.Point.html">kv.Point</a></li>
+  <li><a href="../classes/kv.Rectangle.html">kv.Rectangle</a></li>
+  <li><a href="../classes/kv.Slider.html">kv.Slider</a></li>
+  <li><a href="../classes/kv.TextButton.html">kv.TextButton</a></li>
+  <li><strong>kv.Widget</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/kv.bytes.html">kv.bytes</a></li>
+  <li><a href="../modules/kv.midi.html">kv.midi</a></li>
+  <li><a href="../modules/kv.object.html">kv.object</a></li>
+  <li><a href="../modules/kv.round.html">kv.round</a></li>
+  <li><a href="../modules/kv.slug.html">kv.slug</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>kv.Widget</code></h1>
+<p>A GUI Widget.</p>
+<p> Is defined with <a href="../modules/kv.object.html#">kv.object</a> and can be inherrited. Backed by a JUCE Component.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Widget.init">Widget.init ()</a></td>
+	<td class="summary">Initialize the widget.</td>
+	</tr>
+</table>
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Widget.name">Widget.name</a></td>
+	<td class="summary">Widget name (string).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.localbounds">Widget.localbounds</a></td>
+	<td class="summary">Local bounding box.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.bounds">Widget.bounds</a></td>
+	<td class="summary">Widget bounding box (kv.Bounds)
+ The coords returned is relative to the top/left of the widget's parent.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.x">Widget.x</a></td>
+	<td class="summary">X position (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.y">Widget.y</a></td>
+	<td class="summary">Y position (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.width">Widget.width</a></td>
+	<td class="summary">Widget width (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.height">Widget.height</a></td>
+	<td class="summary">Widget height (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.height">Widget.height</a></td>
+	<td class="summary">Widget height (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.bottom">Widget.bottom</a></td>
+	<td class="summary">Widget bottom edge (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.screenx">Widget.screenx</a></td>
+	<td class="summary">Widget Screen X position (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.screeny">Widget.screeny</a></td>
+	<td class="summary">Widget Screen Y position (int).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget.visible">Widget.visible</a></td>
+	<td class="summary">Widget visibility (bool).</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Widget:add">Widget:add (widget[, zorder])</a></td>
+	<td class="summary">Add a child widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:repaint">Widget:repaint ()</a></td>
+	<td class="summary">Repaint.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:repaint">Widget:repaint (x, y, w, h)</a></td>
+	<td class="summary">Repaint section.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:repaint">Widget:repaint (b)</a></td>
+	<td class="summary">Repaint section.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:resize">Widget:resize (w, h)</a></td>
+	<td class="summary">Resize the widget.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:tofront">Widget:tofront (focus)</a></td>
+	<td class="summary">Bring to front.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:toback">Widget:toback ()</a></td>
+	<td class="summary">To Back.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:getbounds">Widget:getbounds ()</a></td>
+	<td class="summary">Get bounding box.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:setbounds">Widget:setbounds (x, y, w, h)</a></td>
+	<td class="summary">Change the bounds.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:isondesktop">Widget:isondesktop ()</a></td>
+	<td class="summary">True if the widget is showing on the desktop.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:addtodesktop">Widget:addtodesktop (flags[, window])</a></td>
+	<td class="summary">Makes this widget appear as a window on the desktop.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Widget:removefromdesktop">Widget:removefromdesktop ()</a></td>
+	<td class="summary">Remove.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+    Methods
+    <dl class="function">
+    <dt>
+    <a name = "Widget.init"></a>
+    <strong>Widget.init ()</strong>
+    </dt>
+    <dd>
+    Initialize the widget.
+ Override this to customize your widget.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Widget.name"></a>
+    <strong>Widget.name</strong>
+    </dt>
+    <dd>
+    Widget name (string).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.localbounds"></a>
+    <strong>Widget.localbounds</strong>
+    </dt>
+    <dd>
+    Local bounding box.
+ Same as bounds with zero x and y coords
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.bounds"></a>
+    <strong>Widget.bounds</strong>
+    </dt>
+    <dd>
+    Widget bounding box (kv.Bounds)
+ The coords returned is relative to the top/left of the widget's parent.
+
+    </ul>
+
+
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- Can also set a table. e.g.
+</span>widget.bounds = {
+    x      = <span class="number">0</span>,
+    y      = <span class="number">0</span>,
+    width  = <span class="number">100</span>,
+    height = <span class="number">200</span>
+}</pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "Widget.x"></a>
+    <strong>Widget.x</strong>
+    </dt>
+    <dd>
+    X position (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.y"></a>
+    <strong>Widget.y</strong>
+    </dt>
+    <dd>
+    Y position (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.width"></a>
+    <strong>Widget.width</strong>
+    </dt>
+    <dd>
+    Widget width (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.height"></a>
+    <strong>Widget.height</strong>
+    </dt>
+    <dd>
+    Widget height (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.height"></a>
+    <strong>Widget.height</strong>
+    </dt>
+    <dd>
+    Widget height (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.bottom"></a>
+    <strong>Widget.bottom</strong>
+    </dt>
+    <dd>
+    Widget bottom edge (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.screenx"></a>
+    <strong>Widget.screenx</strong>
+    </dt>
+    <dd>
+    Widget Screen X position (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.screeny"></a>
+    <strong>Widget.screeny</strong>
+    </dt>
+    <dd>
+    Widget Screen Y position (int).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget.visible"></a>
+    <strong>Widget.visible</strong>
+    </dt>
+    <dd>
+    Widget visibility (bool).
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Widget:add"></a>
+    <strong>Widget:add (widget[, zorder])</strong>
+    </dt>
+    <dd>
+    Add a child widget.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">widget</span>
+            <span class="types"><a class="type" href="../classes/kv.Widget.html#">kv.Widget</a></span>
+         Widget to add
+        </li>
+        <li><span class="parameter">zorder</span>
+            <span class="types"><span class="type">int</span></span>
+         Z-order
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:repaint"></a>
+    <strong>Widget:repaint ()</strong>
+    </dt>
+    <dd>
+    Repaint.
+ Repaints the entire widget
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:repaint"></a>
+    <strong>Widget:repaint (x, y, w, h)</strong>
+    </dt>
+    <dd>
+    Repaint section.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">int</span></span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:repaint"></a>
+    <strong>Widget:repaint (b)</strong>
+    </dt>
+    <dd>
+    Repaint section.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">b</span>
+            <span class="types"><a class="type" href="../classes/kv.Bounds.html#">kv.Bounds</a></span>
+         Area to repaint
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:resize"></a>
+    <strong>Widget:resize (w, h)</strong>
+    </dt>
+    <dd>
+    Resize the widget.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">int</span></span>
+         New width
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">int</span></span>
+         New height
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:tofront"></a>
+    <strong>Widget:tofront (focus)</strong>
+    </dt>
+    <dd>
+    Bring to front.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">focus</span>
+            <span class="types"><span class="type">bool</span></span>
+         If true, will also try to focus this widget.
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:toback"></a>
+    <strong>Widget:toback ()</strong>
+    </dt>
+    <dd>
+    To Back.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:getbounds"></a>
+    <strong>Widget:getbounds ()</strong>
+    </dt>
+    <dd>
+    Get bounding box.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:setbounds"></a>
+    <strong>Widget:setbounds (x, y, w, h)</strong>
+    </dt>
+    <dd>
+    Change the bounds.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+            <span class="types"><span class="type">int</span></span>
+         X pos
+        </li>
+        <li><span class="parameter">y</span>
+            <span class="types"><span class="type">int</span></span>
+         Y pos
+        </li>
+        <li><span class="parameter">w</span>
+            <span class="types"><span class="type">int</span></span>
+         Width
+        </li>
+        <li><span class="parameter">h</span>
+            <span class="types"><span class="type">int</span></span>
+         Height
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:isondesktop"></a>
+    <strong>Widget:isondesktop ()</strong>
+    </dt>
+    <dd>
+    True if the widget is showing on the desktop.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:addtodesktop"></a>
+    <strong>Widget:addtodesktop (flags[, window])</strong>
+    </dt>
+    <dd>
+    Makes this widget appear as a window on the desktop. </p>
+
+<p> Note that before calling this, you should make sure that the widget's opacity is
+ set correctly using setOpaque(). If the widget is non-opaque, the windowing
+ system will try to create a special transparent window for it, which will generally take
+ a lot more CPU to operate (and might not even be possible on some platforms).</p>
+
+<p> If the widget is inside a parent widget at the time this method is called, it
+ will first be removed from that parent. Likewise if a widget is on the desktop
+ and is subsequently added to another widget, it'll be removed from the desktop.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">flags</span>
+            <span class="types"><span class="type">int</span></span>
+         Window flags
+        </li>
+        <li><span class="parameter">window</span>
+         Native window handle to attach to
+         (<em>optional</em>)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Widget:removefromdesktop"></a>
+    <strong>Widget:removefromdesktop ()</strong>
+    </dt>
+    <dd>
+    Remove.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:21:27 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

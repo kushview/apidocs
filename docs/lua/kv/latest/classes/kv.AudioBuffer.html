@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Lua KV</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Lua KV</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+<li><a href="#Constructors">Constructors</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><strong>kv.AudioBuffer</strong></li>
+  <li><a href="../classes/kv.Bounds.html">kv.Bounds</a></li>
+  <li><a href="../classes/kv.Desktop.html">kv.Desktop</a></li>
+  <li><a href="../classes/kv.DocumentWindow.html">kv.DocumentWindow</a></li>
+  <li><a href="../classes/kv.Graphics.html">kv.Graphics</a></li>
+  <li><a href="../classes/kv.MidiBuffer.html">kv.MidiBuffer</a></li>
+  <li><a href="../classes/kv.MidiMessage.html">kv.MidiMessage</a></li>
+  <li><a href="../classes/kv.MouseEvent.html">kv.MouseEvent</a></li>
+  <li><a href="../classes/kv.Point.html">kv.Point</a></li>
+  <li><a href="../classes/kv.Rectangle.html">kv.Rectangle</a></li>
+  <li><a href="../classes/kv.Slider.html">kv.Slider</a></li>
+  <li><a href="../classes/kv.TextButton.html">kv.TextButton</a></li>
+  <li><a href="../classes/kv.Widget.html">kv.Widget</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/kv.bytes.html">kv.bytes</a></li>
+  <li><a href="../modules/kv.midi.html">kv.midi</a></li>
+  <li><a href="../modules/kv.object.html">kv.object</a></li>
+  <li><a href="../modules/kv.round.html">kv.round</a></li>
+  <li><a href="../modules/kv.slug.html">kv.slug</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>kv.AudioBuffer</code></h1>
+<p>An audio buffer</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:channels">AudioBuffer:channels ()</a></td>
+	<td class="summary">Channel count</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:clear">AudioBuffer:clear ()</a></td>
+	<td class="summary">Clears the entire audio buffer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:clear">AudioBuffer:clear (channel)</a></td>
+	<td class="summary">Clears one channel in the audio buffer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:clear">AudioBuffer:clear (start, count)</a></td>
+	<td class="summary">Clears a range of samples on all channels.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:clear">AudioBuffer:clear (channel, start, count)</a></td>
+	<td class="summary">Clears a range of samples on one channel</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:cleared">AudioBuffer:cleared ()</a></td>
+	<td class="summary">Returns true if the buffer has been cleared</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:length">AudioBuffer:length ()</a></td>
+	<td class="summary">returns the number of samples in the buffer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:get">AudioBuffer:get (channel, frame)</a></td>
+	<td class="summary">Get a single value from the buffer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:set">AudioBuffer:set (channel, frame, value)</a></td>
+	<td class="summary">Set a single sample in the buffer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:applygain">AudioBuffer:applygain (gain)</a></td>
+	<td class="summary">Apply gain to all channels and samples</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:applygain">AudioBuffer:applygain (channel, gain)</a></td>
+	<td class="summary">Apply gain to a single channel</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:applygain">AudioBuffer:applygain (start, count, gain)</a></td>
+	<td class="summary">Applies a gain multiple to a region of all the channels.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:applygain">AudioBuffer:applygain (channel, start, count, gain)</a></td>
+	<td class="summary">Apply gain to a single channel with range</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:fade">AudioBuffer:fade (startgain, endgain)</a></td>
+	<td class="summary">Fade the buffer from starting gain to ending gain</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:fade">AudioBuffer:fade (channel, start, count, gain1, gain2)</a></td>
+	<td class="summary">Fade the buffer from starting gain to ending gain</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer:free">AudioBuffer:free ()</a></td>
+	<td class="summary">Free used memory.</td>
+	</tr>
+</table>
+<h2><a href="#Constructors">Constructors</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer.Float">AudioBuffer.Float (...)</a></td>
+	<td class="summary">Create a 32bit buffer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer.Double">AudioBuffer.Double (...)</a></td>
+	<td class="summary">Create a 64bit buffer</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer.__call">AudioBuffer.__call ()</a></td>
+	<td class="summary">Creates a empty audio buffer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AudioBuffer.__call">AudioBuffer.__call (nchannels, nframes)</a></td>
+	<td class="summary">Creates a new audio buffer with the specified channel and sample counts</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+    Methods
+    <dl class="function">
+    <dt>
+    <a name = "AudioBuffer:channels"></a>
+    <strong>AudioBuffer:channels ()</strong>
+    </dt>
+    <dd>
+    Channel count
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the number of channels held in the buffer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:clear"></a>
+    <strong>AudioBuffer:clear ()</strong>
+    </dt>
+    <dd>
+    Clears the entire audio buffer.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:clear"></a>
+    <strong>AudioBuffer:clear (channel)</strong>
+    </dt>
+    <dd>
+    Clears one channel in the audio buffer.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">int</span></span>
+         The channel to clear
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:clear"></a>
+    <strong>AudioBuffer:clear (start, count)</strong>
+    </dt>
+    <dd>
+    Clears a range of samples on all channels.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">int</span></span>
+         Sample index to start on
+        </li>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">int</span></span>
+         Number of samples to clear
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:clear"></a>
+    <strong>AudioBuffer:clear (channel, start, count)</strong>
+    </dt>
+    <dd>
+    Clears a range of samples on one channel
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">int</span></span>
+         The channel to clear
+        </li>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">int</span></span>
+         Sample index to start on
+        </li>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">int</span></span>
+         Number of samples to clear
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:cleared"></a>
+    <strong>AudioBuffer:cleared ()</strong>
+    </dt>
+    <dd>
+    Returns true if the buffer has been cleared
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        true if already cleared
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:length"></a>
+    <strong>AudioBuffer:length ()</strong>
+    </dt>
+    <dd>
+    returns the number of samples in the buffer
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        size of the buffer in samples
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:get"></a>
+    <strong>AudioBuffer:get (channel, frame)</strong>
+    </dt>
+    <dd>
+    Get a single value from the buffer
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+         The channel to get from
+        </li>
+        <li><span class="parameter">frame</span>
+         The sample index to get
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        the number of channels held in the buffer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:set"></a>
+    <strong>AudioBuffer:set (channel, frame, value)</strong>
+    </dt>
+    <dd>
+    Set a single sample in the buffer
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+         The channel to set on
+        </li>
+        <li><span class="parameter">frame</span>
+         The frame index to set
+        </li>
+        <li><span class="parameter">value</span>
+         The value to set
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:applygain"></a>
+    <strong>AudioBuffer:applygain (gain)</strong>
+    </dt>
+    <dd>
+    Apply gain to all channels and samples
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">gain</span>
+            <span class="types"><span class="type">number</span></span>
+         Gain to apply to all channels
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:applygain"></a>
+    <strong>AudioBuffer:applygain (channel, gain)</strong>
+    </dt>
+    <dd>
+    Apply gain to a single channel
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">int</span></span>
+         Channel to apply gain to
+        </li>
+        <li><span class="parameter">gain</span>
+            <span class="types"><span class="type">number</span></span>
+         Gain to apply to a channel
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:applygain"></a>
+    <strong>AudioBuffer:applygain (start, count, gain)</strong>
+    </dt>
+    <dd>
+    Applies a gain multiple to a region of all the channels.
+ For speed, this doesn't check whether the sample numbers
+ are in-range, so be careful!
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">int</span></span>
+         Sample index to start at
+        </li>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">int</span></span>
+         Number of samples to process
+        </li>
+        <li><span class="parameter">gain</span>
+            <span class="types"><span class="type">number</span></span>
+         Amount of gain to apply
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:applygain"></a>
+    <strong>AudioBuffer:applygain (channel, start, count, gain)</strong>
+    </dt>
+    <dd>
+    Apply gain to a single channel with range
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">int</span></span>
+         Channel to apply gain to
+        </li>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">int</span></span>
+         Sample index to start at
+        </li>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">int</span></span>
+         Number of samples to process
+        </li>
+        <li><span class="parameter">gain</span>
+            <span class="types"><span class="type">number</span></span>
+         Amount of gain to apply
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:fade"></a>
+    <strong>AudioBuffer:fade (startgain, endgain)</strong>
+    </dt>
+    <dd>
+    Fade the buffer from starting gain to ending gain
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">startgain</span>
+            <span class="types"><span class="type">number</span></span>
+         Starting gain
+        </li>
+        <li><span class="parameter">endgain</span>
+            <span class="types"><span class="type">number</span></span>
+         End gain
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:fade"></a>
+    <strong>AudioBuffer:fade (channel, start, count, gain1, gain2)</strong>
+    </dt>
+    <dd>
+    Fade the buffer from starting gain to ending gain
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">channel</span>
+            <span class="types"><span class="type">int</span></span>
+         Channel to apply to
+        </li>
+        <li><span class="parameter">start</span>
+            <span class="types"><span class="type">int</span></span>
+         Sample to start at
+        </li>
+        <li><span class="parameter">count</span>
+            <span class="types"><span class="type">int</span></span>
+         Number of samples to process
+        </li>
+        <li><span class="parameter">gain1</span>
+            <span class="types"><span class="type">number</span></span>
+         Starting gain
+        </li>
+        <li><span class="parameter">gain2</span>
+            <span class="types"><span class="type">number</span></span>
+         End gain
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer:free"></a>
+    <strong>AudioBuffer:free ()</strong>
+    </dt>
+    <dd>
+    Free used memory.
+ Invoke this to free the buffer when it is no longer needed.  Once called,
+ the buffer is no longer valid and WILL crash the interpreter if used after
+ the fact.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Constructors"></a>Constructors</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "AudioBuffer.Float"></a>
+    <strong>AudioBuffer.Float (...)</strong>
+    </dt>
+    <dd>
+    Create a 32bit buffer
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         Params sent to ctor
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        kv.AudioBuffer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer.Double"></a>
+    <strong>AudioBuffer.Double (...)</strong>
+    </dt>
+    <dd>
+    Create a 64bit buffer
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">...</span>
+         Params sent to ctor
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        kv.AudioBuffer
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer.__call"></a>
+    <strong>AudioBuffer.__call ()</strong>
+    </dt>
+    <dd>
+    Creates a empty audio buffer.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        An empty buffer.
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="keyword">local</span> buf = AudioBuffer() <span class="comment">-- __call constructor
+</span><span class="comment">-- do someting with <code>buf</code></span></pre>
+    </ul>
+
+</dd>
+    <dt>
+    <a name = "AudioBuffer.__call"></a>
+    <strong>AudioBuffer.__call (nchannels, nframes)</strong>
+    </dt>
+    <dd>
+    Creates a new audio buffer with the specified channel and sample counts
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">nchannels</span>
+            <span class="types"><span class="type">int</span></span>
+         Number of channels
+        </li>
+        <li><span class="parameter">nframes</span>
+            <span class="types"><span class="type">int</span></span>
+         Number of samples in each channel
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Newly created audio buffer
+    </ol>
+
+
+
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- 2 channels, 2048 samples
+</span><span class="keyword">local</span> buf = AudioBuffer (<span class="number">2</span>, <span class="number">2048</span>) <span class="comment">-- __call constructor
+</span><span class="comment">-- do someting with <code>buf</code></span></pre>
+    </ul>
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:21:27 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
