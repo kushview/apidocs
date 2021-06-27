@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/helloworld.lua.html">helloworld.lua</a></li>
+  <li><strong>sysex.lua</strong></li>
+  <li><a href="../examples/sysexui.lua.html">sysexui.lua</a></li>
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/amp.html">amp</a></li>
+  <li><a href="../scripts/ampui.html">ampui</a></li>
+  <li><a href="../scripts/commands.html">commands</a></li>
+  <li><a href="../scripts/console.html">console</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.CommandManager.html">el.CommandManager</a></li>
+  <li><a href="../classes/el.Globals.html">el.Globals</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>sysex.lua</h2>
+<pre>
+<span class="comment">--- Example - Send MIDI System Exclusive message.
+</span><span class="comment">--
+</span><span class="comment">-- This example shows how to use a toggle parameter and button to send a SysEx message
+</span><span class="comment">-- from a byte array.
+</span><span class="comment">--
+</span><span class="comment">-- See also - Companion Arduino Sketch:
+</span><span class="comment">-- https://gist.github.com/mfisher31/83d84cbb62ec38250e5e9cba4ece7296
+</span><span class="comment">--
+</span><span class="comment">-- @script      examples.sysex
+</span><span class="comment">-- @kind        DSP
+</span><span class="comment">-- @license     GPL v3
+</span><span class="comment">-- @author      Michael Fisher
+</span>
+<span class="keyword">local</span> bytes         = <span class="global">require</span> (<span class="string">'kv.bytes'</span>)
+<span class="keyword">local</span> script        = <span class="global">require</span> (<span class="string">'el.script'</span>)
+<span class="keyword">local</span> MidiBuffer    = <span class="global">require</span> (<span class="string">'kv.MidiBuffer'</span>)
+
+<span class="keyword">local</span> output        = MidiBuffer.new (<span class="number">128</span>)
+<span class="keyword">local</span> sysex         = bytes.new (<span class="number">4</span>)
+bytes.set (sysex, <span class="number">1</span>, <span class="number">0xF0</span>) <span class="comment">-- sysex start
+</span>bytes.set (sysex, <span class="number">2</span>, <span class="number">0x7D</span>) <span class="comment">-- Mfg. ID for educational/development purposes
+</span>bytes.set (sysex, <span class="number">3</span>, <span class="number">0x00</span>) <span class="comment">-- body/value
+</span>bytes.set (sysex, <span class="number">4</span>, <span class="number">0xF7</span>) <span class="comment">-- sysex end
+</span>
+<span class="keyword">local</span> laststate = bytes.get (sysex, <span class="number">3</span>)
+
+<span class="keyword">local</span> <span class="keyword">function</span> layout()
+    <span class="keyword">return</span> {
+        audio = { <span class="number">0</span>, <span class="number">0</span> },
+        midi  = { <span class="number">1</span>, <span class="number">1</span> }
+    }
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> <span class="keyword">function</span> parameters()
+    <span class="keyword">return</span> {
+        {
+            name        = <span class="string">"Power"</span>,
+            label       = <span class="string">"power"</span>,
+            min         = <span class="number">0</span>,
+            max         = <span class="number">1</span>,
+            default     = <span class="number">0</span>
+        }
+    }
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> <span class="keyword">function</span> process (a, m, p)
+    <span class="keyword">local</span> buf = m:get (<span class="number">1</span>)
+    <span class="keyword">local</span> state = p [<span class="number">1</span>]
+
+    output:clear()
+    <span class="keyword">if</span> state ~= laststate <span class="keyword">then</span>
+        <span class="comment">-- update the sysex body
+</span>        <span class="keyword">if</span> state == <span class="number">0.0</span> <span class="keyword">then</span>
+            bytes.set (sysex, <span class="number">3</span>, <span class="number">0x00</span>)
+        <span class="keyword">else</span>
+            bytes.set (sysex, <span class="number">3</span>, <span class="number">0x01</span>)
+        <span class="keyword">end</span>
+
+        <span class="comment">-- add sysex to output buffer
+</span>        output:insertbytes (sysex, <span class="number">4</span>, <span class="number">1</span>)
+        laststate = state
+    <span class="keyword">end</span>
+
+    buf:swap (output)
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> script.dsp {
+    layout      = layout,
+    parameters  = parameters,
+    process     = process
+}</pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:17:42 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

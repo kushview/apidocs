@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/helloworld.lua.html">helloworld.lua</a></li>
+  <li><a href="../examples/sysex.lua.html">sysex.lua</a></li>
+  <li><strong>sysexui.lua</strong></li>
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/amp.html">amp</a></li>
+  <li><a href="../scripts/ampui.html">ampui</a></li>
+  <li><a href="../scripts/commands.html">commands</a></li>
+  <li><a href="../scripts/console.html">console</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.CommandManager.html">el.CommandManager</a></li>
+  <li><a href="../classes/el.Globals.html">el.Globals</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>sysexui.lua</h2>
+<pre>
+<span class="comment">--- Editor for <code>examples.sysex</code> DSP script.
+</span><span class="comment">-- @script examples.sysexui
+</span><span class="comment">-- @kind DSPUI examples.sysex
+</span>
+<span class="keyword">local</span> Widget        = <span class="global">require</span> (<span class="string">'kv.Widget'</span>)
+<span class="keyword">local</span> TextButton    = <span class="global">require</span> (<span class="string">'kv.TextButton'</span>)
+<span class="keyword">local</span> object        = <span class="global">require</span> (<span class="string">'kv.object'</span>)
+<span class="keyword">local</span> new           = object.new
+<span class="keyword">local</span> script        = <span class="global">require</span> (<span class="string">'el.script'</span>)
+
+<span class="keyword">local</span> bgcolor       = <span class="number">0xff545454</span>
+<span class="keyword">local</span> fgcolor       = <span class="number">0xffffffff</span>
+
+<span class="keyword">local</span> Editor        = object (Widget)
+
+<span class="keyword">function</span> Editor:init (ctx)
+    Widget.init (self)
+    self.ctx = ctx
+
+    <span class="keyword">local</span> led = self.ctx.params [<span class="number">1</span>]
+    self.button = self:add (new (TextButton))
+    self.button.clicked = <span class="keyword">function</span> (btn)
+        <span class="keyword">if</span> led:get() == <span class="number">0</span> <span class="keyword">then</span>
+            led:set (<span class="number">1</span>)
+        <span class="keyword">else</span>
+            led:set (<span class="number">0</span>)
+        <span class="keyword">end</span>
+        self:stabilize()
+    <span class="keyword">end</span>
+
+    self:resize (<span class="number">180</span>, <span class="number">120</span>)
+    self:stabilize()
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> Editor:stabilize()
+    <span class="keyword">local</span> led = self.ctx.params [<span class="number">1</span>]
+    <span class="keyword">if</span> led:get() == <span class="number">0</span> <span class="keyword">then</span>
+        self.button.togglestate = <span class="keyword">false</span>
+        self.button.text = <span class="string">"Off"</span>
+    <span class="keyword">else</span>
+        self.button.togglestate = <span class="keyword">true</span>
+        self.button.text = <span class="string">"On"</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> Editor:paint (g)
+    g:fillall (bgcolor)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> Editor:resized()
+    self.button.bounds = self.localbounds:reduced (<span class="number">20</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> <span class="keyword">function</span> create_editor (ctx)
+    <span class="keyword">return</span> object.new (Editor, ctx)
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> script.dspui {
+    editor = create_editor
+}</pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:17:42 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

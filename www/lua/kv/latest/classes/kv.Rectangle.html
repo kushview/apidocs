@@ -1,0 +1,883 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Lua KV</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Lua KV</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+<li><a href="#Class_Methods">Class Methods </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/kv.AudioBuffer.html">kv.AudioBuffer</a></li>
+  <li><a href="../classes/kv.Bounds.html">kv.Bounds</a></li>
+  <li><a href="../classes/kv.Desktop.html">kv.Desktop</a></li>
+  <li><a href="../classes/kv.DocumentWindow.html">kv.DocumentWindow</a></li>
+  <li><a href="../classes/kv.Graphics.html">kv.Graphics</a></li>
+  <li><a href="../classes/kv.MidiBuffer.html">kv.MidiBuffer</a></li>
+  <li><a href="../classes/kv.MidiMessage.html">kv.MidiMessage</a></li>
+  <li><a href="../classes/kv.MouseEvent.html">kv.MouseEvent</a></li>
+  <li><a href="../classes/kv.Point.html">kv.Point</a></li>
+  <li><strong>kv.Rectangle</strong></li>
+  <li><a href="../classes/kv.Slider.html">kv.Slider</a></li>
+  <li><a href="../classes/kv.TextButton.html">kv.TextButton</a></li>
+  <li><a href="../classes/kv.Widget.html">kv.Widget</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/kv.bytes.html">kv.bytes</a></li>
+  <li><a href="../modules/kv.midi.html">kv.midi</a></li>
+  <li><a href="../modules/kv.object.html">kv.object</a></li>
+  <li><a href="../modules/kv.round.html">kv.round</a></li>
+  <li><a href="../modules/kv.slug.html">kv.slug</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>kv.Rectangle</code></h1>
+<p>A rectangle.</p>
+<p> The value type for this is a 32bit float</p>
+
+
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.x">Rectangle.x</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.y">Rectangle.y</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.center">Rectangle.center</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.centerx">Rectangle.centerx</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.centery">Rectangle.centery</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.width">Rectangle.width</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.height">Rectangle.height</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.left">Rectangle.left</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.right">Rectangle.right</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.top">Rectangle.top</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.bottom">Rectangle.bottom</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:isempty">Rectangle:isempty ()</a></td>
+	<td class="summary">Is empty.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:isfinite">Rectangle:isfinite ()</a></td>
+	<td class="summary">Is finite.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:translate">Rectangle:translate (dx, dy)</a></td>
+	<td class="summary">Translate the rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:translated">Rectangle:translated (dx, dy)</a></td>
+	<td class="summary">Returns a translated retctangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:expand">Rectangle:expand (dx, dy)</a></td>
+	<td class="summary">Expand the rectangle in size.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:expanded">Rectangle:expanded (dx, dy)</a></td>
+	<td class="summary">Returns expanded rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:expanded">Rectangle:expanded (dxy)</a></td>
+	<td class="summary">Returns expanded rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:translate">Rectangle:translate (dx, dy)</a></td>
+	<td class="summary">Reduce the rectangle in size.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:reduced">Rectangle:reduced (dx, dy)</a></td>
+	<td class="summary">Returns reduced rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:reduced">Rectangle:reduced (dxy)</a></td>
+	<td class="summary">Returns reduced rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:slicetop">Rectangle:slicetop (amt)</a></td>
+	<td class="summary">Slice top.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:sliceleft">Rectangle:sliceleft (amt)</a></td>
+	<td class="summary">Slice left.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:sliceright">Rectangle:sliceright (amt)</a></td>
+	<td class="summary">Slice right.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:slicebottom">Rectangle:slicebottom (amt)</a></td>
+	<td class="summary">Slice bottom.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:tointeger">Rectangle:tointeger ()</a></td>
+	<td class="summary">Convert to integer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:toedges">Rectangle:toedges ()</a></td>
+	<td class="summary">Convert to rounded integer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:tointeger">Rectangle:tointeger ()</a></td>
+	<td class="summary">Convert to number.</td>
+	</tr>
+</table>
+<h2><a href="#Class_Methods">Class Methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.fromcoords">Rectangle.fromcoords (x1, y1, x2, y2)</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Rectangle.x"></a>
+    <strong>Rectangle.x</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.y"></a>
+    <strong>Rectangle.y</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.center"></a>
+    <strong>Rectangle.center</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.centerx"></a>
+    <strong>Rectangle.centerx</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.centery"></a>
+    <strong>Rectangle.centery</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.width"></a>
+    <strong>Rectangle.width</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.height"></a>
+    <strong>Rectangle.height</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.left"></a>
+    <strong>Rectangle.left</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.right"></a>
+    <strong>Rectangle.right</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.top"></a>
+    <strong>Rectangle.top</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.bottom"></a>
+    <strong>Rectangle.bottom</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Rectangle:isempty"></a>
+    <strong>Rectangle:isempty ()</strong>
+    </dt>
+    <dd>
+    Is empty.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if a 0,0,0,0 rectangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:isfinite"></a>
+    <strong>Rectangle:isfinite ()</strong>
+    </dt>
+    <dd>
+    Is finite.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if finite
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:translate"></a>
+    <strong>Rectangle:translate (dx, dy)</strong>
+    </dt>
+    <dd>
+    Translate the rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:translated"></a>
+    <strong>Rectangle:translated (dx, dy)</strong>
+    </dt>
+    <dd>
+    Returns a translated retctangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        A translated rectangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:expand"></a>
+    <strong>Rectangle:expand (dx, dy)</strong>
+    </dt>
+    <dd>
+    Expand the rectangle in size.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:expanded"></a>
+    <strong>Rectangle:expanded (dx, dy)</strong>
+    </dt>
+    <dd>
+    Returns expanded rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:expanded"></a>
+    <strong>Rectangle:expanded (dxy)</strong>
+    </dt>
+    <dd>
+    Returns expanded rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dxy</span>
+         Delta X and Y
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:translate"></a>
+    <strong>Rectangle:translate (dx, dy)</strong>
+    </dt>
+    <dd>
+    Reduce the rectangle in size.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:reduced"></a>
+    <strong>Rectangle:reduced (dx, dy)</strong>
+    </dt>
+    <dd>
+    Returns reduced rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dx</span>
+
+
+
+        </li>
+        <li><span class="parameter">dy</span>
+
+
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:reduced"></a>
+    <strong>Rectangle:reduced (dxy)</strong>
+    </dt>
+    <dd>
+    Returns reduced rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">dxy</span>
+         Delta X and Y
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:slicetop"></a>
+    <strong>Rectangle:slicetop (amt)</strong>
+    </dt>
+    <dd>
+    Slice top.
+ Remomve and return a portion of this rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         Amount to remove
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:sliceleft"></a>
+    <strong>Rectangle:sliceleft (amt)</strong>
+    </dt>
+    <dd>
+    Slice left.
+ Remomve and return a portion of this rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         Amount to remove
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:sliceright"></a>
+    <strong>Rectangle:sliceright (amt)</strong>
+    </dt>
+    <dd>
+    Slice right.
+ Remomve and return a portion of this rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         Amount to remove
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:slicebottom"></a>
+    <strong>Rectangle:slicebottom (amt)</strong>
+    </dt>
+    <dd>
+    Slice bottom.
+ Remomve and return a portion of this rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">amt</span>
+         Amount to remove
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:tointeger"></a>
+    <strong>Rectangle:tointeger ()</strong>
+    </dt>
+    <dd>
+    Convert to integer.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Converted rectangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:toedges"></a>
+    <strong>Rectangle:toedges ()</strong>
+    </dt>
+    <dd>
+    Convert to rounded integer.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Converted rectangle
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:tointeger"></a>
+    <strong>Rectangle:tointeger ()</strong>
+    </dt>
+    <dd>
+    Convert to number.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Converted rectangle
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Class_Methods"></a>Class Methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Rectangle.fromcoords"></a>
+    <strong>Rectangle.fromcoords (x1, y1, x2, y2)</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x1</span>
+            <span class="types"><span class="type">int</span></span>
+         Left
+        </li>
+        <li><span class="parameter">y1</span>
+            <span class="types"><span class="type">int</span></span>
+         Top
+        </li>
+        <li><span class="parameter">x2</span>
+            <span class="types"><span class="type">int</span></span>
+         Right
+        </li>
+        <li><span class="parameter">y2</span>
+            <span class="types"><span class="type">int</span></span>
+         Bottom
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/kv.Rectangle.html#">kv.Rectangle</a></span>
+        New rectangle
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:17:43 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

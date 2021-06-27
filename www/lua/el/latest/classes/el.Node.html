@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods </a></li>
+<li><a href="#Attributes">Attributes</a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.CommandManager.html">el.CommandManager</a></li>
+  <li><a href="../classes/el.Globals.html">el.Globals</a></li>
+  <li><strong>el.Node</strong></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/amp.html">amp</a></li>
+  <li><a href="../scripts/ampui.html">ampui</a></li>
+  <li><a href="../scripts/commands.html">commands</a></li>
+  <li><a href="../scripts/console.html">console</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/helloworld.lua.html">helloworld.lua</a></li>
+  <li><a href="../examples/sysex.lua.html">sysex.lua</a></li>
+  <li><a href="../examples/sysexui.lua.html">sysexui.lua</a></li>
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.Node</code></h1>
+<p>Node object.</p>
+<p>
+
+</p>
+
+
+<h2><a href="#Methods">Methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Node:haseditor">Node:haseditor ()</a></td>
+	<td class="summary">Has custom editor.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:toxmlstring">Node:toxmlstring ()</a></td>
+	<td class="summary">Convert to an XML string.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:resetports">Node:resetports ()</a></td>
+	<td class="summary">Rebuild port metadata.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:savestate">Node:savestate ()</a></td>
+	<td class="summary">Save state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:restorestate">Node:restorestate ()</a></td>
+	<td class="summary">Restore state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:writefile">Node:writefile (f)</a></td>
+	<td class="summary">Write node to file.</td>
+	</tr>
+</table>
+<h2><a href="#Attributes">Attributes</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Node.valid">Node.valid</a></td>
+	<td class="summary">True if a valid node (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.name">Node.name</a></td>
+	<td class="summary">Node name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.missing">Node.missing</a></td>
+	<td class="summary">Is the node missing?.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.enabled">Node.enabled</a></td>
+	<td class="summary">True if enabled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.muted">Node.muted</a></td>
+	<td class="summary">Is muted.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.bypassed">Node.bypassed</a></td>
+	<td class="summary">Is bypassed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.displayname">Node.displayname</a></td>
+	<td class="summary">Display name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node.pluginname">Node.pluginname</a></td>
+	<td class="summary">Plugin name.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Node:haseditor"></a>
+    <strong>Node:haseditor ()</strong>
+    </dt>
+    <dd>
+    Has custom editor.
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if the plugin provides it's own editor
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:toxmlstring"></a>
+    <strong>Node:toxmlstring ()</strong>
+    </dt>
+    <dd>
+    Convert to an XML string.
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+        Node formatted as XML
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:resetports"></a>
+    <strong>Node:resetports ()</strong>
+    </dt>
+    <dd>
+    Rebuild port metadata.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:savestate"></a>
+    <strong>Node:savestate ()</strong>
+    </dt>
+    <dd>
+    Save state.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:restorestate"></a>
+    <strong>Node:restorestate ()</strong>
+    </dt>
+    <dd>
+    Restore state.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:writefile"></a>
+    <strong>Node:writefile (f)</strong>
+    </dt>
+    <dd>
+    Write node to file.
+
+    </ul>
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">f</span>
+            <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+         Absolute file path to save to
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        True if successful
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Attributes"></a>Attributes</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Node.valid"></a>
+    <strong>Node.valid</strong>
+    </dt>
+    <dd>
+    True if a valid node (readonly).
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.name"></a>
+    <strong>Node.name</strong>
+    </dt>
+    <dd>
+    Node name.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.missing"></a>
+    <strong>Node.missing</strong>
+    </dt>
+    <dd>
+    Is the node missing?.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.enabled"></a>
+    <strong>Node.enabled</strong>
+    </dt>
+    <dd>
+    True if enabled.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.muted"></a>
+    <strong>Node.muted</strong>
+    </dt>
+    <dd>
+    Is muted.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.bypassed"></a>
+    <strong>Node.bypassed</strong>
+    </dt>
+    <dd>
+    Is bypassed.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.displayname"></a>
+    <strong>Node.displayname</strong>
+    </dt>
+    <dd>
+    Display name.
+ Will be a user-defined name or name provided by the plugin.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node.pluginname"></a>
+    <strong>Node.pluginname</strong>
+    </dt>
+    <dd>
+    Plugin name.
+ Name provided by the plugin.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:17:42 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

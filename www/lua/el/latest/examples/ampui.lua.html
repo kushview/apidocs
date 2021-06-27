@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+
+
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/helloworld.lua.html">helloworld.lua</a></li>
+  <li><a href="../examples/sysex.lua.html">sysex.lua</a></li>
+  <li><a href="../examples/sysexui.lua.html">sysexui.lua</a></li>
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><strong>ampui.lua</strong></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/amp.html">amp</a></li>
+  <li><a href="../scripts/ampui.html">ampui</a></li>
+  <li><a href="../scripts/commands.html">commands</a></li>
+  <li><a href="../scripts/console.html">console</a></li>
+</ul>
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.CommandManager.html">el.CommandManager</a></li>
+  <li><a href="../classes/el.Globals.html">el.Globals</a></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+    <h2>ampui.lua</h2>
+<pre>
+<span class="comment">--- Editor for <a href="../scripts/amp.html#">amp</a> DSP script.
+</span><span class="comment">-- @script ampui
+</span><span class="comment">-- @kind DSPUI amp
+</span>
+<span class="keyword">local</span> Widget        = <span class="global">require</span> (<span class="string">'kv.Widget'</span>)
+<span class="keyword">local</span> Slider        = <span class="global">require</span> (<span class="string">'kv.Slider'</span>)
+<span class="keyword">local</span> command       = <span class="global">require</span> (<span class="string">'el.command'</span>)
+<span class="keyword">local</span> object        = <span class="global">require</span> (<span class="string">'kv.object'</span>)
+<span class="keyword">local</span> script        = <span class="global">require</span> (<span class="string">'el.script'</span>)
+
+<span class="keyword">local</span> bgcolor       = <span class="number">0xff545454</span>
+<span class="keyword">local</span> fgcolor       = <span class="number">0xffffffff</span>
+
+<span class="keyword">local</span> Editor        = object (Widget)
+<span class="keyword">function</span> Editor:init (ctx)
+    Widget.init (self)
+
+    <span class="keyword">local</span> volume = ctx.params [<span class="number">1</span>]
+
+    self.knob = self:add (object.new (Slider))
+    self.knob.style = Slider.ROTARY
+    self.knob:textboxstyle (Slider.TEXT_BOX_BELOW, <span class="keyword">true</span>, <span class="number">52</span>, <span class="number">26</span>)
+    self.knob:range (-<span class="number">90</span>, <span class="number">24</span>, <span class="number">0.01</span>)
+    self.knob:value (volume:value (<span class="keyword">false</span>))
+    self.knob.dragging  = <span class="keyword">false</span>
+    self.knob.dragstart = <span class="keyword">function</span>() self.knob.dragging = <span class="keyword">true</span> <span class="keyword">end</span>
+    self.knob.dragend   = <span class="keyword">function</span>() self.knob.dragging = <span class="keyword">false</span> <span class="keyword">end</span>
+    self.knob.valuechanged   = <span class="keyword">function</span>()
+        <span class="keyword">if</span> <span class="keyword">not</span> self.knob.dragging <span class="keyword">then</span> <span class="keyword">return</span> <span class="keyword">end</span>
+        volume:value (self.knob:value(), <span class="keyword">false</span>)
+    <span class="keyword">end</span>
+
+    volume.valuechanged = <span class="keyword">function</span>()
+        self.knob:value (volume:value (<span class="keyword">false</span>), <span class="number">0</span>)
+    <span class="keyword">end</span>
+
+    self:resize (<span class="number">180</span>, <span class="number">170</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> Editor:paint (g)
+    g:fillall (bgcolor)
+    g:color (fgcolor)
+    g:drawtext (<span class="string">"AMP"</span>, <span class="number">0</span>, <span class="number">0</span>, self.width, <span class="number">30</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">function</span> Editor:resized()
+    self.knob.bounds = self.localbounds:reduced (<span class="number">20</span>)
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> <span class="keyword">function</span> amp_editor_new (ctx)
+    <span class="keyword">return</span> object.new (Editor, ctx)
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> script.dspui {
+    editor = amp_editor_new
+}</pre>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:17:42 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

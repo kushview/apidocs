@@ -1,0 +1,6 @@
+[submodule "packages/element"]
+	path = packages/element
+	url = https://github.com/kushview/element.git
+[submodule "packages/lua-kv"]
+	path = packages/lua-kv
+	url = https://github.com/kushview/lua-kv.git

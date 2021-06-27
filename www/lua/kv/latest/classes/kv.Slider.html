@@ -1,0 +1,838 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Lua KV</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Lua KV</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+<li><a href="#Handlers">Handlers </a></li>
+<li><a href="#Styles">Styles </a></li>
+<li><a href="#TextBox_Position">TextBox Position </a></li>
+<li><a href="#Drag_Mode">Drag Mode </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/kv.AudioBuffer.html">kv.AudioBuffer</a></li>
+  <li><a href="../classes/kv.Bounds.html">kv.Bounds</a></li>
+  <li><a href="../classes/kv.Desktop.html">kv.Desktop</a></li>
+  <li><a href="../classes/kv.DocumentWindow.html">kv.DocumentWindow</a></li>
+  <li><a href="../classes/kv.Graphics.html">kv.Graphics</a></li>
+  <li><a href="../classes/kv.MidiBuffer.html">kv.MidiBuffer</a></li>
+  <li><a href="../classes/kv.MidiMessage.html">kv.MidiMessage</a></li>
+  <li><a href="../classes/kv.MouseEvent.html">kv.MouseEvent</a></li>
+  <li><a href="../classes/kv.Point.html">kv.Point</a></li>
+  <li><a href="../classes/kv.Rectangle.html">kv.Rectangle</a></li>
+  <li><strong>kv.Slider</strong></li>
+  <li><a href="../classes/kv.TextButton.html">kv.TextButton</a></li>
+  <li><a href="../classes/kv.Widget.html">kv.Widget</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/kv.bytes.html">kv.bytes</a></li>
+  <li><a href="../modules/kv.midi.html">kv.midi</a></li>
+  <li><a href="../modules/kv.object.html">kv.object</a></li>
+  <li><a href="../modules/kv.round.html">kv.round</a></li>
+  <li><a href="../modules/kv.slug.html">kv.slug</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>kv.Slider</code></h1>
+<p>Slider widget.</p>
+<p> Is a <a href="../classes/kv.Widget.html#">kv.Widget</a></p>
+
+
+<h2><a href="#Attributes">Attributes </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.min">Slider.min</a></td>
+	<td class="summary">Minimum range (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.max">Slider.max</a></td>
+	<td class="summary">Maximum range (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.interval">Slider.interval</a></td>
+	<td class="summary">Current step-size (readonly).</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.style">Slider.style</a></td>
+	<td class="summary">Kind of slider.</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider:range">Slider:range ()</a></td>
+	<td class="summary">Get the current range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:range">Slider:range (min, max, interval)</a></td>
+	<td class="summary">Set the range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:range">Slider:range (range, interval)</a></td>
+	<td class="summary">Set the range.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:value">Slider:value ()</a></td>
+	<td class="summary">Get or set the value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider:textboxstyle">Slider:textboxstyle (pos, ro, width, height)</a></td>
+	<td class="summary">Change TextBox position.</td>
+	</tr>
+</table>
+<h2><a href="#Handlers">Handlers </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.valuechanged">Slider.valuechanged</a></td>
+	<td class="summary">Value changed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.dragstart">Slider.dragstart</a></td>
+	<td class="summary">Started to drag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.dragend">Slider.dragend</a></td>
+	<td class="summary">Stopped dragging.</td>
+	</tr>
+</table>
+<h2><a href="#Styles">Styles </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.LINEAR_HORIZONTAL">Slider.LINEAR_HORIZONTAL</a></td>
+	<td class="summary">Linear Horizontal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.LINEAR_VERTICAL">Slider.LINEAR_VERTICAL</a></td>
+	<td class="summary">Linear Vertical.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.LINEAR_BAR">Slider.LINEAR_BAR</a></td>
+	<td class="summary">Linear Bar.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.LINEAR_BAR_VERTICAL">Slider.LINEAR_BAR_VERTICAL</a></td>
+	<td class="summary">Linear Bar Vertical.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.ROTARY">Slider.ROTARY</a></td>
+	<td class="summary">Rotary.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.ROTARY_HORIZONTAL_DRAG">Slider.ROTARY_HORIZONTAL_DRAG</a></td>
+	<td class="summary">Rotary horizontal drag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.ROTARY_VERTICAL_DRAG">Slider.ROTARY_VERTICAL_DRAG</a></td>
+	<td class="summary">Rotary vertical drag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.ROTARY_HORIZONTAL_VERTICAL_DRAG">Slider.ROTARY_HORIZONTAL_VERTICAL_DRAG</a></td>
+	<td class="summary">Rotary horizontal/vertical drag.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.SPIN_BUTTONS">Slider.SPIN_BUTTONS</a></td>
+	<td class="summary">Spin buttons.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TWO_VALUE_HORIZONTAL">Slider.TWO_VALUE_HORIZONTAL</a></td>
+	<td class="summary">Two value horizontal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TWO_VALUE_VERTICAL">Slider.TWO_VALUE_VERTICAL</a></td>
+	<td class="summary">Two value vertical.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.THREE_VALUE_HORIZONTAL">Slider.THREE_VALUE_HORIZONTAL</a></td>
+	<td class="summary">Three value horizontal.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.THREE_VALUE_VERTICAL">Slider.THREE_VALUE_VERTICAL</a></td>
+	<td class="summary">Three value vertical.</td>
+	</tr>
+</table>
+<h2><a href="#TextBox_Position">TextBox Position </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TEXT_BOX_NONE">Slider.TEXT_BOX_NONE</a></td>
+	<td class="summary">No TextBox.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TEXT_BOX_LEFT">Slider.TEXT_BOX_LEFT</a></td>
+	<td class="summary">TextBox on left.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TEXT_BOX_RIGHT">Slider.TEXT_BOX_RIGHT</a></td>
+	<td class="summary">TextBox on right.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TEXT_BOX_ABOVE">Slider.TEXT_BOX_ABOVE</a></td>
+	<td class="summary">TextBox above.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.TEXT_BOX_BELOW">Slider.TEXT_BOX_BELOW</a></td>
+	<td class="summary">TextBox below.</td>
+	</tr>
+</table>
+<h2><a href="#Drag_Mode">Drag Mode </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Slider.DRAG_NONE">Slider.DRAG_NONE</a></td>
+	<td class="summary">Not dragging.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.DRAG_ABSOLUTE">Slider.DRAG_ABSOLUTE</a></td>
+	<td class="summary">Absolute dragging.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Slider.DRAG_VELOCITY">Slider.DRAG_VELOCITY</a></td>
+	<td class="summary">Velocity based dragging.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.min"></a>
+    <strong>Slider.min</strong>
+    </dt>
+    <dd>
+    Minimum range (readonly).
+
+    </ul>
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/kv.Slider.html#Slider:range">Slider.range</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Slider.max"></a>
+    <strong>Slider.max</strong>
+    </dt>
+    <dd>
+    Maximum range (readonly).
+
+    </ul>
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/kv.Slider.html#Slider:range">Slider.range</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Slider.interval"></a>
+    <strong>Slider.interval</strong>
+    </dt>
+    <dd>
+    Current step-size (readonly).
+
+    </ul>
+
+
+
+
+    <h3>See also:</h3>
+    <ul>
+         <a href="../classes/kv.Slider.html#Slider:range">Slider.range</a>
+    </ul>
+
+
+</dd>
+    <dt>
+    <a name = "Slider.style"></a>
+    <strong>Slider.style</strong>
+    </dt>
+    <dd>
+    Kind of slider.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider:range"></a>
+    <strong>Slider:range ()</strong>
+    </dt>
+    <dd>
+    Get the current range.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        kv.Range The current range
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:range"></a>
+    <strong>Slider:range (min, max, interval)</strong>
+    </dt>
+    <dd>
+    Set the range.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">min</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">max</span>
+            <span class="types"><span class="type">number</span></span>
+
+
+
+        </li>
+        <li><span class="parameter">interval</span>
+            <span class="types"><span class="type">number</span></span>
+         (default: 0.0)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        kv.Range The current range
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:range"></a>
+    <strong>Slider:range (range, interval)</strong>
+    </dt>
+    <dd>
+    Set the range.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">range</span>
+            <span class="types"><span class="type">kv.Range</span></span>
+         Range to set
+        </li>
+        <li><span class="parameter">interval</span>
+            <span class="types"><span class="type">number</span></span>
+         Step-size
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        kv.Range The current range
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:value"></a>
+    <strong>Slider:value ()</strong>
+    </dt>
+    <dd>
+    Get or set the value.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider:textboxstyle"></a>
+    <strong>Slider:textboxstyle (pos, ro, width, height)</strong>
+    </dt>
+    <dd>
+    Change TextBox position.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">pos</span>
+            <span class="types"><span class="type">int</span></span>
+         Text box position
+        </li>
+        <li><span class="parameter">ro</span>
+            <span class="types"><span class="type">bool</span></span>
+         Text box is read only
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">int</span></span>
+         Text box width
+        </li>
+        <li><span class="parameter">height</span>
+            <span class="types"><span class="type">int</span></span>
+         Text box height
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Handlers"></a>Handlers </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.valuechanged"></a>
+    <strong>Slider.valuechanged</strong>
+    </dt>
+    <dd>
+    Value changed.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.dragstart"></a>
+    <strong>Slider.dragstart</strong>
+    </dt>
+    <dd>
+    Started to drag.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.dragend"></a>
+    <strong>Slider.dragend</strong>
+    </dt>
+    <dd>
+    Stopped dragging.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Styles"></a>Styles </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.LINEAR_HORIZONTAL"></a>
+    <strong>Slider.LINEAR_HORIZONTAL</strong>
+    </dt>
+    <dd>
+    Linear Horizontal.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.LINEAR_VERTICAL"></a>
+    <strong>Slider.LINEAR_VERTICAL</strong>
+    </dt>
+    <dd>
+    Linear Vertical.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.LINEAR_BAR"></a>
+    <strong>Slider.LINEAR_BAR</strong>
+    </dt>
+    <dd>
+    Linear Bar.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.LINEAR_BAR_VERTICAL"></a>
+    <strong>Slider.LINEAR_BAR_VERTICAL</strong>
+    </dt>
+    <dd>
+    Linear Bar Vertical.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.ROTARY"></a>
+    <strong>Slider.ROTARY</strong>
+    </dt>
+    <dd>
+    Rotary.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.ROTARY_HORIZONTAL_DRAG"></a>
+    <strong>Slider.ROTARY_HORIZONTAL_DRAG</strong>
+    </dt>
+    <dd>
+    Rotary horizontal drag.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.ROTARY_VERTICAL_DRAG"></a>
+    <strong>Slider.ROTARY_VERTICAL_DRAG</strong>
+    </dt>
+    <dd>
+    Rotary vertical drag.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.ROTARY_HORIZONTAL_VERTICAL_DRAG"></a>
+    <strong>Slider.ROTARY_HORIZONTAL_VERTICAL_DRAG</strong>
+    </dt>
+    <dd>
+    Rotary horizontal/vertical drag.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.SPIN_BUTTONS"></a>
+    <strong>Slider.SPIN_BUTTONS</strong>
+    </dt>
+    <dd>
+    Spin buttons.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TWO_VALUE_HORIZONTAL"></a>
+    <strong>Slider.TWO_VALUE_HORIZONTAL</strong>
+    </dt>
+    <dd>
+    Two value horizontal.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TWO_VALUE_VERTICAL"></a>
+    <strong>Slider.TWO_VALUE_VERTICAL</strong>
+    </dt>
+    <dd>
+    Two value vertical.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.THREE_VALUE_HORIZONTAL"></a>
+    <strong>Slider.THREE_VALUE_HORIZONTAL</strong>
+    </dt>
+    <dd>
+    Three value horizontal.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.THREE_VALUE_VERTICAL"></a>
+    <strong>Slider.THREE_VALUE_VERTICAL</strong>
+    </dt>
+    <dd>
+    Three value vertical.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="TextBox_Position"></a>TextBox Position </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.TEXT_BOX_NONE"></a>
+    <strong>Slider.TEXT_BOX_NONE</strong>
+    </dt>
+    <dd>
+    No TextBox.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TEXT_BOX_LEFT"></a>
+    <strong>Slider.TEXT_BOX_LEFT</strong>
+    </dt>
+    <dd>
+    TextBox on left.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TEXT_BOX_RIGHT"></a>
+    <strong>Slider.TEXT_BOX_RIGHT</strong>
+    </dt>
+    <dd>
+    TextBox on right.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TEXT_BOX_ABOVE"></a>
+    <strong>Slider.TEXT_BOX_ABOVE</strong>
+    </dt>
+    <dd>
+    TextBox above.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.TEXT_BOX_BELOW"></a>
+    <strong>Slider.TEXT_BOX_BELOW</strong>
+    </dt>
+    <dd>
+    TextBox below.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Drag_Mode"></a>Drag Mode </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Slider.DRAG_NONE"></a>
+    <strong>Slider.DRAG_NONE</strong>
+    </dt>
+    <dd>
+    Not dragging.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.DRAG_ABSOLUTE"></a>
+    <strong>Slider.DRAG_ABSOLUTE</strong>
+    </dt>
+    <dd>
+    Absolute dragging.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Slider.DRAG_VELOCITY"></a>
+    <strong>Slider.DRAG_VELOCITY</strong>
+    </dt>
+    <dd>
+    Velocity based dragging.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:17:43 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

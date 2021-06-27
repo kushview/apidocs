@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Element Lua Documentation</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>Element</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Methods">Methods </a></li>
+<li><a href="#Class_Methods">Class Methods </a></li>
+</ul>
+
+
+<h2>Classes</h2>
+<ul class="nowrap">
+  <li><a href="../classes/el.CommandManager.html">el.CommandManager</a></li>
+  <li><strong>el.Globals</strong></li>
+  <li><a href="../classes/el.Node.html">el.Node</a></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
+  <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
+</ul>
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><a href="../modules/el.command.html">el.command</a></li>
+  <li><a href="../modules/el.script.html">el.script</a></li>
+</ul>
+<h2>Scripts</h2>
+<ul class="nowrap">
+  <li><a href="../scripts/amp.html">amp</a></li>
+  <li><a href="../scripts/ampui.html">ampui</a></li>
+  <li><a href="../scripts/commands.html">commands</a></li>
+  <li><a href="../scripts/console.html">console</a></li>
+</ul>
+<h2>Examples</h2>
+<ul class="nowrap">
+  <li><a href="../examples/helloworld.lua.html">helloworld.lua</a></li>
+  <li><a href="../examples/sysex.lua.html">sysex.lua</a></li>
+  <li><a href="../examples/sysexui.lua.html">sysexui.lua</a></li>
+  <li><a href="../examples/amp.lua.html">amp.lua</a></li>
+  <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Class <code>el.Globals</code></h1>
+<p>Global objects.</p>
+<p> A collection of global objects </p>
+
+
+<h2><a href="#Methods">Methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Globals:audioengine">Globals:audioengine ()</a></td>
+	<td class="summary">Get the current audio engine</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Globals:commandmanager">Globals:commandmanager ()</a></td>
+	<td class="summary">Returns the command manager</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Globals:devicemanager">Globals:devicemanager ()</a></td>
+	<td class="summary">Returns the device manager</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Globals:mappingengine">Globals:mappingengine ()</a></td>
+	<td class="summary">Returns the mapping engine</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Globals:midiengine">Globals:midiengine ()</a></td>
+	<td class="summary">Returns the midi engine</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Globals:pluginmanager">Globals:pluginmanager ()</a></td>
+	<td class="summary">Returns the plugin manager</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Globals:presetmanager">Globals:presetmanager ()</a></td>
+	<td class="summary">Returns the preset manager</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Globals:session">Globals:session ()</a></td>
+	<td class="summary">Returns the preset manager</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Globals:settings">Globals:settings ()</a></td>
+	<td class="summary">Returns the preset manager</td>
+	</tr>
+</table>
+<h2><a href="#Class_Methods">Class Methods </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Globals.instance">Globals.instance ()</a></td>
+	<td class="summary">Returns el.Globals single instance</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Methods"></a>Methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Globals:audioengine"></a>
+    <strong>Globals:audioengine ()</strong>
+    </dt>
+    <dd>
+    Get the current audio engine
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.AudioEngine</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Globals:commandmanager"></a>
+    <strong>Globals:commandmanager ()</strong>
+    </dt>
+    <dd>
+    Returns the command manager
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.CommandManager.html#">el.CommandManager</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Globals:devicemanager"></a>
+    <strong>Globals:devicemanager ()</strong>
+    </dt>
+    <dd>
+    Returns the device manager
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.DeviceManager</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Globals:mappingengine"></a>
+    <strong>Globals:mappingengine ()</strong>
+    </dt>
+    <dd>
+    Returns the mapping engine
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.MappingEngine</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Globals:midiengine"></a>
+    <strong>Globals:midiengine ()</strong>
+    </dt>
+    <dd>
+    Returns the midi engine
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.MidiEngine</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Globals:pluginmanager"></a>
+    <strong>Globals:pluginmanager ()</strong>
+    </dt>
+    <dd>
+    Returns the plugin manager
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.PluginManager</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Globals:presetmanager"></a>
+    <strong>Globals:presetmanager ()</strong>
+    </dt>
+    <dd>
+    Returns the preset manager
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.PresetManager</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Globals:session"></a>
+    <strong>Globals:session ()</strong>
+    </dt>
+    <dd>
+    Returns the preset manager
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Session.html#">el.Session</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Globals:settings"></a>
+    <strong>Globals:settings ()</strong>
+    </dt>
+    <dd>
+    Returns the preset manager
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">el.Settings</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Class_Methods"></a>Class Methods </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Globals.instance"></a>
+    <strong>Globals.instance ()</strong>
+    </dt>
+    <dd>
+    Returns el.Globals single instance
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/el.Globals.html#">el.Globals</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2021-06-27 13:17:42 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
