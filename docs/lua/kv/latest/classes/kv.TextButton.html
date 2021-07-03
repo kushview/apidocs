@@ -32,8 +32,9 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Functions">Functions</a></li>
 <li><a href="#Attributes">Attributes </a></li>
+<li><a href="#Methods">Methods</a></li>
+<li><a href="#Handlers">Handlers </a></li>
 </ul>
 
 
@@ -48,6 +49,7 @@
   <li><a href="../classes/kv.MidiMessage.html">kv.MidiMessage</a></li>
   <li><a href="../classes/kv.MouseEvent.html">kv.MouseEvent</a></li>
   <li><a href="../classes/kv.Point.html">kv.Point</a></li>
+  <li><a href="../classes/kv.Range.html">kv.Range</a></li>
   <li><a href="../classes/kv.Rectangle.html">kv.Rectangle</a></li>
   <li><a href="../classes/kv.Slider.html">kv.Slider</a></li>
   <li><strong>kv.TextButton</strong></li>
@@ -71,39 +73,52 @@
 <p> Is a <a href="../classes/kv.Widget.html#">kv.Widget</a>.</p>
 
 
-<h2><a href="#Functions">Functions</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#TextButton:clicked">TextButton:clicked ()</a></td>
-	<td class="summary">On clicked handler.</td>
-	</tr>
-</table>
 <h2><a href="#Attributes">Attributes </a></h2>
 <table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#TextButton.text">TextButton.text</a></td>
-	<td class="summary">Displayed text.</td>
-	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#TextButton.togglestate">TextButton.togglestate</a></td>
 	<td class="summary">The button's toggle state.</td>
 	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#TextButton.text">TextButton.text</a></td>
+	<td class="summary">Displayed text.</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#TextButton:settogglestate">TextButton:settogglestate (state)</a></td>
+	<td class="summary">Change the button's toggle state.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#TextButton:settogglestate">TextButton:settogglestate (state, notify)</a></td>
+	<td class="summary">Change the button's toggle state.</td>
+	</tr>
+</table>
+<h2><a href="#Handlers">Handlers </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#TextButton:clicked">TextButton:clicked (self)</a></td>
+	<td class="summary">On clicked handler.</td>
+	</tr>
 </table>
 
 <br/>
 <br/>
 
 
-    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
-    Methods
+    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
+
     <dl class="function">
     <dt>
-    <a name = "TextButton:clicked"></a>
-    <strong>TextButton:clicked ()</strong>
+    <a name = "TextButton.togglestate"></a>
+    <strong>TextButton.togglestate</strong>
     </dt>
     <dd>
-    On clicked handler.
- Executed when the button is clicked by the user.
+    The button's toggle state.
+ Setting this property <strong>will notify</strong> listeners. If you need to change
+ the toggle state and NOT notify, use the <a href="../classes/kv.TextButton.html#TextButton:settogglestate">settogglestate</a>
+ method instead.
 
     </ul>
 
@@ -113,10 +128,6 @@
 
 
 </dd>
-</dl>
-    <h2 class="section-header "><a name="Attributes"></a>Attributes </h2>
-
-    <dl class="function">
     <dt>
     <a name = "TextButton.text"></a>
     <strong>TextButton.text</strong>
@@ -132,16 +143,80 @@
 
 
 </dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
     <dt>
-    <a name = "TextButton.togglestate"></a>
-    <strong>TextButton.togglestate</strong>
+    <a name = "TextButton:settogglestate"></a>
+    <strong>TextButton:settogglestate (state)</strong>
     </dt>
     <dd>
-    The button's toggle state.
- Setting this property will notify listeners.
+    Change the button's toggle state.
+ Note this variation <strong>will send</strong> notifications to listeners.
 
     </ul>
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+          The new toggle state on or off
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "TextButton:settogglestate"></a>
+    <strong>TextButton:settogglestate (state, notify)</strong>
+    </dt>
+    <dd>
+    Change the button's toggle state.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">state</span>
+            <span class="types"><span class="type">bool</span></span>
+          The new toggle state on or off
+        </li>
+        <li><span class="parameter">notify</span>
+            <span class="types"><span class="type">bool</span></span>
+         If true sends notification to listeners
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Handlers"></a>Handlers </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "TextButton:clicked"></a>
+    <strong>TextButton:clicked (self)</strong>
+    </dt>
+    <dd>
+    On clicked handler.
+ Executed when the button is clicked by the user.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">self</span>
+            <span class="types"><a class="type" href="../classes/kv.TextButton.html#">kv.TextButton</a></span>
+         The reference to the clicked button
+        </li>
+    </ul>
 
 
 
@@ -155,7 +230,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-06-27 21:32:44 </i>
+<i style="float:right;">Last updated 2021-07-03 08:14:05 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

@@ -49,6 +49,7 @@
   <li><a href="../classes/kv.MidiMessage.html">kv.MidiMessage</a></li>
   <li><a href="../classes/kv.MouseEvent.html">kv.MouseEvent</a></li>
   <li><a href="../classes/kv.Point.html">kv.Point</a></li>
+  <li><a href="../classes/kv.Range.html">kv.Range</a></li>
   <li><strong>kv.Rectangle</strong></li>
   <li><a href="../classes/kv.Slider.html">kv.Slider</a></li>
   <li><a href="../classes/kv.TextButton.html">kv.TextButton</a></li>
@@ -69,7 +70,7 @@
 
 <h1>Class <code>kv.Rectangle</code></h1>
 <p>A rectangle.</p>
-<p> The value type for this is a 32bit float</p>
+<p> The value type for this is a 32 bit float.</p>
 
 
 <h2><a href="#Attributes">Attributes </a></h2>
@@ -82,24 +83,6 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Rectangle.y">Rectangle.y</a></td>
-	<td class="summary">
-
-</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Rectangle.center">Rectangle.center</a></td>
-	<td class="summary">
-
-</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Rectangle.centerx">Rectangle.centerx</a></td>
-	<td class="summary">
-
-</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Rectangle.centery">Rectangle.centery</a></td>
 	<td class="summary">
 
 </td>
@@ -144,6 +127,22 @@
 <h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Rectangle:center">Rectangle:center ()</a></td>
+	<td class="summary">Returns the center point of this rect.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:centerx">Rectangle:centerx ()</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle:centery">Rectangle:centery ()</a></td>
+	<td class="summary">
+
+</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Rectangle:isempty">Rectangle:isempty ()</a></td>
 	<td class="summary">Is empty.</td>
 	</tr>
@@ -172,7 +171,7 @@
 	<td class="summary">Returns expanded rectangle.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Rectangle:translate">Rectangle:translate (dx, dy)</a></td>
+	<td class="name" nowrap><a href="#Rectangle:reduce">Rectangle:reduce (dx, dy)</a></td>
 	<td class="summary">Reduce the rectangle in size.</td>
 	</tr>
 	<tr>
@@ -215,10 +214,24 @@
 <h2><a href="#Class_Methods">Class Methods </a></h2>
 <table class="function_list">
 	<tr>
+	<td class="name" nowrap><a href="#Rectangle.new">Rectangle.new ()</a></td>
+	<td class="summary">Create a new empty rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.new">Rectangle.new (x, y, width, height)</a></td>
+	<td class="summary">Create a new rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.new">Rectangle.new (width, height)</a></td>
+	<td class="summary">Create a new rectangle.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Rectangle.new">Rectangle.new (p1, p2)</a></td>
+	<td class="summary">Create a new rectangle from two points.</td>
+	</tr>
+	<tr>
 	<td class="name" nowrap><a href="#Rectangle.fromcoords">Rectangle.fromcoords (x1, y1, x2, y2)</a></td>
-	<td class="summary">
-
-</td>
+	<td class="summary">Create a new rectangle from a set of coordinates.</td>
 	</tr>
 </table>
 
@@ -249,57 +262,6 @@
     <dt>
     <a name = "Rectangle.y"></a>
     <strong>Rectangle.y</strong>
-    </dt>
-    <dd>
-
-
-
-
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Rectangle.center"></a>
-    <strong>Rectangle.center</strong>
-    </dt>
-    <dd>
-
-
-
-
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Rectangle.centerx"></a>
-    <strong>Rectangle.centerx</strong>
-    </dt>
-    <dd>
-
-
-
-
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Rectangle.centery"></a>
-    <strong>Rectangle.centery</strong>
     </dt>
     <dd>
 
@@ -420,6 +382,63 @@
     <h2 class="section-header "><a name="Methods"></a>Methods</h2>
 
     <dl class="function">
+    <dt>
+    <a name = "Rectangle:center"></a>
+    <strong>Rectangle:center ()</strong>
+    </dt>
+    <dd>
+    Returns the center point of this rect.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/kv.Point.html#">kv.Point</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:centerx"></a>
+    <strong>Rectangle:centerx ()</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle:centery"></a>
+    <strong>Rectangle:centery ()</strong>
+    </dt>
+    <dd>
+
+
+
+
+    </ul>
+
+
+
+
+
+
+</dd>
     <dt>
     <a name = "Rectangle:isempty"></a>
     <strong>Rectangle:isempty ()</strong>
@@ -599,8 +618,8 @@
 
 </dd>
     <dt>
-    <a name = "Rectangle:translate"></a>
-    <strong>Rectangle:translate (dx, dy)</strong>
+    <a name = "Rectangle:reduce"></a>
+    <strong>Rectangle:reduce (dx, dy)</strong>
     </dt>
     <dd>
     Reduce the rectangle in size.
@@ -828,13 +847,154 @@
 
     <dl class="function">
     <dt>
+    <a name = "Rectangle.new"></a>
+    <strong>Rectangle.new ()</strong>
+    </dt>
+    <dd>
+    Create a new empty rectangle.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/kv.Rectangle.html#">kv.Rectangle</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.new"></a>
+    <strong>Rectangle.new (x, y, width, height)</strong>
+    </dt>
+    <dd>
+    Create a new rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">x</span>
+
+
+
+        </li>
+        <li><span class="parameter">y</span>
+
+
+
+        </li>
+        <li><span class="parameter">width</span>
+
+
+
+        </li>
+        <li><span class="parameter">height</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/kv.Rectangle.html#">kv.Rectangle</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.new"></a>
+    <strong>Rectangle.new (width, height)</strong>
+    </dt>
+    <dd>
+    Create a new rectangle.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">width</span>
+
+
+
+        </li>
+        <li><span class="parameter">height</span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/kv.Rectangle.html#">kv.Rectangle</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Rectangle.new"></a>
+    <strong>Rectangle.new (p1, p2)</strong>
+    </dt>
+    <dd>
+    Create a new rectangle from two points.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">p1</span>
+            <span class="types"><a class="type" href="../classes/kv.Point.html#">kv.Point</a></span>
+
+
+
+        </li>
+        <li><span class="parameter">p2</span>
+            <span class="types"><a class="type" href="../classes/kv.Point.html#">kv.Point</a></span>
+
+
+
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/kv.Rectangle.html#">kv.Rectangle</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
     <a name = "Rectangle.fromcoords"></a>
     <strong>Rectangle.fromcoords (x1, y1, x2, y2)</strong>
     </dt>
     <dd>
-
-
-
+    Create a new rectangle from a set of coordinates.
 
     </ul>
 
@@ -876,7 +1036,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-06-27 21:32:44 </i>
+<i style="float:right;">Last updated 2021-07-03 08:14:05 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>

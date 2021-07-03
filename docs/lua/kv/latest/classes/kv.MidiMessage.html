@@ -33,6 +33,7 @@
 <h2>Contents</h2>
 <ul>
 <li><a href="#Methods">Methods </a></li>
+<li><a href="#Constructors">Constructors </a></li>
 </ul>
 
 
@@ -47,6 +48,7 @@
   <li><strong>kv.MidiMessage</strong></li>
   <li><a href="../classes/kv.MouseEvent.html">kv.MouseEvent</a></li>
   <li><a href="../classes/kv.Point.html">kv.Point</a></li>
+  <li><a href="../classes/kv.Range.html">kv.Range</a></li>
   <li><a href="../classes/kv.Rectangle.html">kv.Rectangle</a></li>
   <li><a href="../classes/kv.Slider.html">kv.Slider</a></li>
   <li><a href="../classes/kv.TextButton.html">kv.TextButton</a></li>
@@ -103,7 +105,7 @@
 	<td class="summary">Midi Channel.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#MidiMessage:ischannel">MidiMessage:ischannel (ch)</a></td>
+	<td class="name" nowrap><a href="#MidiMessage:isforchannel">MidiMessage:isforchannel (ch)</a></td>
 	<td class="summary">Is a channel message.</td>
 	</tr>
 	<tr>
@@ -185,6 +187,149 @@
 	<tr>
 	<td class="name" nowrap><a href="#MidiMessage:pressure">MidiMessage:pressure ()</a></td>
 	<td class="summary">Pressure.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:iscontroller">MidiMessage:iscontroller ()</a></td>
+	<td class="summary">Is controller message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:controller">MidiMessage:controller ()</a></td>
+	<td class="summary">Returns the controller number.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:controllervalue">MidiMessage:controllervalue ()</a></td>
+	<td class="summary">Returns the controller value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:iscontrollertype">MidiMessage:iscontrollertype (type)</a></td>
+	<td class="summary">Check if this is a particular controller message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isnotesoff">MidiMessage:isnotesoff ()</a></td>
+	<td class="summary">True if all notes off message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:issoundoff">MidiMessage:issoundoff ()</a></td>
+	<td class="summary">True if all sounds off message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isresetcontrollers">MidiMessage:isresetcontrollers ()</a></td>
+	<td class="summary">True if reset controllers message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:ismeta">MidiMessage:ismeta ()</a></td>
+	<td class="summary">True if a Meta message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:metatype">MidiMessage:metatype ()</a></td>
+	<td class="summary">Returns the metadata type.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:metadata">MidiMessage:metadata ()</a></td>
+	<td class="summary">Returns the metadata.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:metalength">MidiMessage:metalength ()</a></td>
+	<td class="summary">Returns the metadata length.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:istrack">MidiMessage:istrack ()</a></td>
+	<td class="summary">Returns true if a track message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:istrackend">MidiMessage:istrackend ()</a></td>
+	<td class="summary">Returns true if track end message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:istrackname">MidiMessage:istrackname ()</a></td>
+	<td class="summary">Returns true if track name message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:istext">MidiMessage:istext ()</a></td>
+	<td class="summary">Returns true if a text message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:text">MidiMessage:text ()</a></td>
+	<td class="summary">Returns the text.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:istempo">MidiMessage:istempo ()</a></td>
+	<td class="summary">Returns true if a tempo message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:tempospqn">MidiMessage:tempospqn ()</a></td>
+	<td class="summary">Returns the tempo SPQN.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:tempoticks">MidiMessage:tempoticks ()</a></td>
+	<td class="summary">Returns the tempo ticks.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isactivesense">MidiMessage:isactivesense ()</a></td>
+	<td class="summary">Returns true if an active sense message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isstart">MidiMessage:isstart ()</a></td>
+	<td class="summary">Returns true if a start message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isstop">MidiMessage:isstop ()</a></td>
+	<td class="summary">Returns true if a stop message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:iscontinue">MidiMessage:iscontinue ()</a></td>
+	<td class="summary">Returns true if a continue message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isclock">MidiMessage:isclock ()</a></td>
+	<td class="summary">Returns true if is MIDI clock.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isspp">MidiMessage:isspp ()</a></td>
+	<td class="summary">Returns true if a song position pointer.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:sppbeat">MidiMessage:sppbeat ()</a></td>
+	<td class="summary">Returns true if song position pointer beat.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isquarterframe">MidiMessage:isquarterframe ()</a></td>
+	<td class="summary">Returns true if a quarter frame message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:quarterframeseq">MidiMessage:quarterframeseq ()</a></td>
+	<td class="summary">Get the quarter frame sequence.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:quarterframevalue">MidiMessage:quarterframevalue ()</a></td>
+	<td class="summary">Returns true if song position pointer beat.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:isfullframe">MidiMessage:isfullframe ()</a></td>
+	<td class="summary">Returns true if a full frame message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:fullframeparams">MidiMessage:fullframeparams ()</a></td>
+	<td class="summary">Get full frame parameters.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:ismmc">MidiMessage:ismmc ()</a></td>
+	<td class="summary">Returns true if a MMC message.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:mmccommand">MidiMessage:mmccommand ()</a></td>
+	<td class="summary">MMC Command.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage:goto">MidiMessage:goto ()</a></td>
+	<td class="summary">MIDI goto.</td>
+	</tr>
+</table>
+<h2><a href="#Constructors">Constructors </a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#MidiMessage.new">MidiMessage.new (data)</a></td>
+	<td class="summary">Create a new MIDI message.</td>
 	</tr>
 </table>
 
@@ -349,8 +494,8 @@
 
 </dd>
     <dt>
-    <a name = "MidiMessage:ischannel"></a>
-    <strong>MidiMessage:ischannel (ch)</strong>
+    <a name = "MidiMessage:isforchannel"></a>
+    <strong>MidiMessage:isforchannel (ch)</strong>
     </dt>
     <dd>
     Is a channel message.
@@ -795,6 +940,783 @@
 
 
 </dd>
+    <dt>
+    <a name = "MidiMessage:iscontroller"></a>
+    <strong>MidiMessage:iscontroller ()</strong>
+    </dt>
+    <dd>
+    Is controller message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+        True if a controller message
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:controller"></a>
+    <strong>MidiMessage:controller ()</strong>
+    </dt>
+    <dd>
+    Returns the controller number.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The controller number
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:controllervalue"></a>
+    <strong>MidiMessage:controllervalue ()</strong>
+    </dt>
+    <dd>
+    Returns the controller value.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The controller value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:iscontrollertype"></a>
+    <strong>MidiMessage:iscontrollertype (type)</strong>
+    </dt>
+    <dd>
+    Check if this is a particular controller message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">type</span>
+            <span class="types"><span class="type">int</span></span>
+         Controller type to check for
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isnotesoff"></a>
+    <strong>MidiMessage:isnotesoff ()</strong>
+    </dt>
+    <dd>
+    True if all notes off message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:issoundoff"></a>
+    <strong>MidiMessage:issoundoff ()</strong>
+    </dt>
+    <dd>
+    True if all sounds off message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isresetcontrollers"></a>
+    <strong>MidiMessage:isresetcontrollers ()</strong>
+    </dt>
+    <dd>
+    True if reset controllers message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:ismeta"></a>
+    <strong>MidiMessage:ismeta ()</strong>
+    </dt>
+    <dd>
+    True if a Meta message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:metatype"></a>
+    <strong>MidiMessage:metatype ()</strong>
+    </dt>
+    <dd>
+    Returns the metadata type.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:metadata"></a>
+    <strong>MidiMessage:metadata ()</strong>
+    </dt>
+    <dd>
+    Returns the metadata.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:metalength"></a>
+    <strong>MidiMessage:metalength ()</strong>
+    </dt>
+    <dd>
+    Returns the metadata length.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:istrack"></a>
+    <strong>MidiMessage:istrack ()</strong>
+    </dt>
+    <dd>
+    Returns true if a track message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:istrackend"></a>
+    <strong>MidiMessage:istrackend ()</strong>
+    </dt>
+    <dd>
+    Returns true if track end message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:istrackname"></a>
+    <strong>MidiMessage:istrackname ()</strong>
+    </dt>
+    <dd>
+    Returns true if track name message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:istext"></a>
+    <strong>MidiMessage:istext ()</strong>
+    </dt>
+    <dd>
+    Returns true if a text message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:text"></a>
+    <strong>MidiMessage:text ()</strong>
+    </dt>
+    <dd>
+    Returns the text.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:istempo"></a>
+    <strong>MidiMessage:istempo ()</strong>
+    </dt>
+    <dd>
+    Returns true if a tempo message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:tempospqn"></a>
+    <strong>MidiMessage:tempospqn ()</strong>
+    </dt>
+    <dd>
+    Returns the tempo SPQN.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:tempoticks"></a>
+    <strong>MidiMessage:tempoticks ()</strong>
+    </dt>
+    <dd>
+    Returns the tempo ticks.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isactivesense"></a>
+    <strong>MidiMessage:isactivesense ()</strong>
+    </dt>
+    <dd>
+    Returns true if an active sense message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isstart"></a>
+    <strong>MidiMessage:isstart ()</strong>
+    </dt>
+    <dd>
+    Returns true if a start message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isstop"></a>
+    <strong>MidiMessage:isstop ()</strong>
+    </dt>
+    <dd>
+    Returns true if a stop message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:iscontinue"></a>
+    <strong>MidiMessage:iscontinue ()</strong>
+    </dt>
+    <dd>
+    Returns true if a continue message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isclock"></a>
+    <strong>MidiMessage:isclock ()</strong>
+    </dt>
+    <dd>
+    Returns true if is MIDI clock.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isspp"></a>
+    <strong>MidiMessage:isspp ()</strong>
+    </dt>
+    <dd>
+    Returns true if a song position pointer.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:sppbeat"></a>
+    <strong>MidiMessage:sppbeat ()</strong>
+    </dt>
+    <dd>
+    Returns true if song position pointer beat.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isquarterframe"></a>
+    <strong>MidiMessage:isquarterframe ()</strong>
+    </dt>
+    <dd>
+    Returns true if a quarter frame message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:quarterframeseq"></a>
+    <strong>MidiMessage:quarterframeseq ()</strong>
+    </dt>
+    <dd>
+    Get the quarter frame sequence.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The sequence
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:quarterframevalue"></a>
+    <strong>MidiMessage:quarterframevalue ()</strong>
+    </dt>
+    <dd>
+    Returns true if song position pointer beat.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">int</span></span>
+        The quarter frame value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:isfullframe"></a>
+    <strong>MidiMessage:isfullframe ()</strong>
+    </dt>
+    <dd>
+    Returns true if a full frame message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:fullframeparams"></a>
+    <strong>MidiMessage:fullframeparams ()</strong>
+    </dt>
+    <dd>
+    Get full frame parameters.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The params
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:ismmc"></a>
+    <strong>MidiMessage:ismmc ()</strong>
+    </dt>
+    <dd>
+    Returns true if a MMC message.
+
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">bool</span></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:mmccommand"></a>
+    <strong>MidiMessage:mmccommand ()</strong>
+    </dt>
+    <dd>
+    MMC Command.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "MidiMessage:goto"></a>
+    <strong>MidiMessage:goto ()</strong>
+    </dt>
+    <dd>
+    MIDI goto.
+
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Constructors"></a>Constructors </h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "MidiMessage.new"></a>
+    <strong>MidiMessage.new (data)</strong>
+    </dt>
+    <dd>
+    Create a new MIDI message.
+
+    </ul>
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+            <span class="types"><span class="type">int</span></span>
+         Data as a packed integer. see <a href="../modules/kv.midi.html#">kv.midi</a>
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="../classes/kv.MidiMessage.html#">kv.MidiMessage</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
 </dl>
 
 
@@ -802,7 +1724,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-06-27 21:32:44 </i>
+<i style="float:right;">Last updated 2021-07-03 08:14:05 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
