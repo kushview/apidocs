@@ -35,11 +35,11 @@
 <h2>Examples</h2>
 <ul class="nowrap">
   <li><a href="../examples/helloworld.lua.html">helloworld.lua</a></li>
-  <li><strong>sysex.lua</strong></li>
+  <li><a href="../examples/sysex.lua.html">sysex.lua</a></li>
   <li><a href="../examples/sysexui.lua.html">sysexui.lua</a></li>
   <li><a href="../examples/amp.lua.html">amp.lua</a></li>
   <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
-  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
+  <li><strong>channelize.lua</strong></li>
 </ul>
 <h2>Modules</h2>
 <ul class="nowrap">
@@ -68,27 +68,24 @@
 
 <div id="content">
 
-    <h2>sysex.lua</h2>
+    <h2>channelize.lua</h2>
 <pre>
-<span class="comment">--- SysEx MIDI Example.
+<span class="comment">--- MIDI Channelizer.
 </span><span class="comment">--
-</span><span class="comment">-- @script      examples.sysex
+</span><span class="comment">-- This is a MIDI filter which forces a specified channel on all messages. Set
+</span><span class="comment">-- the channel parameter to '0' to bypass the filter.
+</span><span class="comment">--
+</span><span class="comment">-- @script      channelize
 </span><span class="comment">-- @kind        DSP
 </span><span class="comment">-- @license     GPL v3
 </span><span class="comment">-- @author      Michael Fisher
 </span>
-<span class="keyword">local</span> bytes         = <span class="global">require</span> (<span class="string">'kv.bytes'</span>)
-<span class="keyword">local</span> script        = <span class="global">require</span> (<span class="string">'el.script'</span>)
 <span class="keyword">local</span> MidiBuffer    = <span class="global">require</span> (<span class="string">'kv.MidiBuffer'</span>)
+<span class="keyword">local</span> script        = <span class="global">require</span> (<span class="string">'el.script'</span>)
+<span class="keyword">local</span> round         = <span class="global">require</span> (<span class="string">'kv.round'</span>)
 
-<span class="keyword">local</span> output        = MidiBuffer.new (<span class="number">128</span>)
-<span class="keyword">local</span> sysex         = bytes.new (<span class="number">4</span>)
-bytes.set (sysex, <span class="number">1</span>, <span class="number">0xF0</span>) <span class="comment">-- sysex start
-</span>bytes.set (sysex, <span class="number">2</span>, <span class="number">0x7D</span>) <span class="comment">-- Mfg. ID for educational/development purposes
-</span>bytes.set (sysex, <span class="number">3</span>, <span class="number">0x00</span>) <span class="comment">-- body/value
-</span>bytes.set (sysex, <span class="number">4</span>, <span class="number">0xF7</span>) <span class="comment">-- sysex end
-</span>
-<span class="keyword">local</span> laststate = bytes.get (sysex, <span class="number">3</span>)
+<span class="comment">-- Buffer to render filtered output
+</span><span class="keyword">local</span> output        = MidiBuffer.new()
 
 <span class="keyword">local</span> <span class="keyword">function</span> layout()
     <span class="keyword">return</span> {
@@ -100,41 +97,49 @@ bytes.set (sysex, <span class="number">1</span>, <span class="number">0xF0</span
 <span class="keyword">local</span> <span class="keyword">function</span> parameters()
     <span class="keyword">return</span> {
         {
-            name        = <span class="string">"Power"</span>,
-            label       = <span class="string">"power"</span>,
+            name        = <span class="string">"Channel"</span>,
+            label       = <span class="string">"channel"</span>,
             min         = <span class="number">0</span>,
-            max         = <span class="number">1</span>,
+            max         = <span class="number">16</span>,
             default     = <span class="number">0</span>
         }
     }
 <span class="keyword">end</span>
 
-<span class="keyword">local</span> <span class="keyword">function</span> process (a, m, p)
-    <span class="keyword">local</span> buf = m:get (<span class="number">1</span>)
-    <span class="keyword">local</span> state = p [<span class="number">1</span>]
-
+<span class="comment">-- prepare for rendering
+</span><span class="keyword">local</span> <span class="keyword">function</span> prepare()
+    <span class="comment">-- reserve 128 bytes of memory and clear the output buffer
+</span>    output:reserve (<span class="number">128</span>)
     output:clear()
-    <span class="keyword">if</span> state ~= laststate <span class="keyword">then</span>
-        <span class="comment">-- update the sysex body
-</span>        <span class="keyword">if</span> state == <span class="number">0.0</span> <span class="keyword">then</span>
-            bytes.set (sysex, <span class="number">3</span>, <span class="number">0x00</span>)
-        <span class="keyword">else</span>
-            bytes.set (sysex, <span class="number">3</span>, <span class="number">0x01</span>)
-        <span class="keyword">end</span>
+<span class="keyword">end</span>
 
-        <span class="comment">-- add sysex to output buffer
-</span>        output:addbytes (sysex, <span class="number">4</span>, <span class="number">1</span>)
-        laststate = state
+<span class="keyword">local</span> <span class="keyword">function</span> process (_, m, p)
+    <span class="comment">-- Get MIDI input buffer fromt the MidiPipe
+</span>    <span class="keyword">local</span> input = m:get (<span class="number">1</span>)
+
+    <span class="comment">-- Get the channel number from the parameter array, and round to integer
+</span>    <span class="keyword">local</span> channel = round.integer (p[<span class="number">1</span>])
+
+    <span class="comment">-- For each input message, set the specified channel
+</span>    output:clear()
+    <span class="keyword">for</span> msg, frame <span class="keyword">in</span> input:messages() <span class="keyword">do</span>
+        <span class="keyword">if</span> channel &gt; <span class="number">0</span> <span class="keyword">and</span> msg:channel() &gt; <span class="number">0</span> <span class="keyword">then</span>
+            msg:setchannel (channel)
+        <span class="keyword">end</span>
+        output:addmessage (msg, frame)
     <span class="keyword">end</span>
 
-    buf:swap (output)
+    <span class="comment">-- DSP scripts use replace processing, so swap in the rendered output
+</span>    input:swap (output)
 <span class="keyword">end</span>
 
 <span class="keyword">return</span> {
     <span class="global">type</span>        = <span class="string">'DSP'</span>,
     layout      = layout,
     parameters  = parameters,
-    process     = process
+    prepare     = prepare,
+    process     = process,
+    release     = release
 }</pre>
 
 

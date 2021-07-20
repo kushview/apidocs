@@ -32,8 +32,8 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Attributes">Attributes</a></li>
 <li><a href="#Methods">Methods</a></li>
+<li><a href="#Handlers">Handlers</a></li>
 </ul>
 
 
@@ -42,8 +42,8 @@
   <li><a href="../classes/el.CommandManager.html">el.CommandManager</a></li>
   <li><a href="../classes/el.Globals.html">el.Globals</a></li>
   <li><a href="../classes/el.Node.html">el.Node</a></li>
-  <li><a href="../classes/el.Parameter.html">el.Parameter</a></li>
-  <li><strong>el.Session</strong></li>
+  <li><strong>el.Parameter</strong></li>
+  <li><a href="../classes/el.Session.html">el.Session</a></li>
   <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
 </ul>
 <h2>Modules</h2>
@@ -73,33 +73,27 @@
 
 <div id="content">
 
-<h1>Class <code>el.Session</code></h1>
-<p>Session object</p>
-<p>
-
-</p>
+<h1>Class <code>el.Parameter</code></h1>
+<p>A Parameter.</p>
+<p> A variable property of a Node. </p>
 
 
-<h2><a href="#Attributes">Attributes</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#Session.name">Session.name</a></td>
-	<td class="summary">Session name.</td>
-	</tr>
-</table>
 <h2><a href="#Methods">Methods</a></h2>
 <table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Session:toxmlstring">Session:toxmlstring ()</a></td>
-	<td class="summary">Convert to an XML string.</td>
+	<td class="name" nowrap><a href="#Parameter:get">Parameter:get ()</a></td>
+	<td class="summary">Get the current value.</td>
 	</tr>
 	<tr>
-	<td class="name" nowrap><a href="#Session:savestate">Session:savestate ()</a></td>
-	<td class="summary">Save the state.</td>
+	<td class="name" nowrap><a href="#Parameter:set">Parameter:set (value)</a></td>
+	<td class="summary">Set the current value.</td>
 	</tr>
+</table>
+<h2><a href="#Handlers">Handlers</a></h2>
+<table class="function_list">
 	<tr>
-	<td class="name" nowrap><a href="#Session:restorestate">Session:restorestate ()</a></td>
-	<td class="summary">Restore state.</td>
+	<td class="name" nowrap><a href="#Parameter:valuechanged">Parameter:valuechanged ()</a></td>
+	<td class="summary">Value changed handler.</td>
 	</tr>
 </table>
 
@@ -107,35 +101,15 @@
 <br/>
 
 
-    <h2 class="section-header "><a name="Attributes"></a>Attributes</h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "Session.name"></a>
-    <strong>Session.name</strong>
-    </dt>
-    <dd>
-    Session name.
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-</dl>
     <h2 class="section-header "><a name="Methods"></a>Methods</h2>
 
     <dl class="function">
     <dt>
-    <a name = "Session:toxmlstring"></a>
-    <strong>Session:toxmlstring ()</strong>
+    <a name = "Parameter:get"></a>
+    <strong>Parameter:get ()</strong>
     </dt>
     <dd>
-    Convert to an XML string.
+    Get the current value.
 
     </ul>
     </ul>
@@ -144,7 +118,8 @@
     <h3>Returns:</h3>
     <ol>
 
-        XML formatted string of the session
+           <span class="types"><span class="type">number</span></span>
+        The currrent value
     </ol>
 
 
@@ -152,29 +127,40 @@
 
 </dd>
     <dt>
-    <a name = "Session:savestate"></a>
-    <strong>Session:savestate ()</strong>
+    <a name = "Parameter:set"></a>
+    <strong>Parameter:set (value)</strong>
     </dt>
     <dd>
-    Save the state.
- Will save state for all loaded plugins as well
+    Set the current value.
 
     </ul>
     </ul>
 
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">value</span>
+            <span class="types"><span class="type">number</span></span>
+         The new value to set
+        </li>
+    </ul>
 
 
 
 
 
 </dd>
+</dl>
+    <h2 class="section-header "><a name="Handlers"></a>Handlers</h2>
+
+    <dl class="function">
     <dt>
-    <a name = "Session:restorestate"></a>
-    <strong>Session:restorestate ()</strong>
+    <a name = "Parameter:valuechanged"></a>
+    <strong>Parameter:valuechanged ()</strong>
     </dt>
     <dd>
-    Restore state.
- Restores all plugin states
+    Value changed handler.
+ Implement this to handle when the value changes. If you call Parameter:set
+ from inside this callback, be careful to not create an infinte callback loop.
 
     </ul>
     </ul>
@@ -183,6 +169,14 @@
 
 
 
+    <h3>Usage:</h3>
+    <ul>
+        <pre class="example"><span class="comment">-- The first argument, <code>self</code>, will be the Parameter object
+</span>param.valuechanged = <span class="keyword">function</span> (self)
+    <span class="keyword">local</span> value = self:get()
+    <span class="global">print</span> (value)
+<span class="keyword">end</span></pre>
+    </ul>
 
 </dd>
 </dl>

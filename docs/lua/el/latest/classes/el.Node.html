@@ -32,8 +32,8 @@
 
 <h2>Contents</h2>
 <ul>
-<li><a href="#Methods">Methods </a></li>
 <li><a href="#Attributes">Attributes</a></li>
+<li><a href="#Methods">Methods</a></li>
 </ul>
 
 
@@ -42,6 +42,7 @@
   <li><a href="../classes/el.CommandManager.html">el.CommandManager</a></li>
   <li><a href="../classes/el.Globals.html">el.Globals</a></li>
   <li><strong>el.Node</strong></li>
+  <li><a href="../classes/el.Parameter.html">el.Parameter</a></li>
   <li><a href="../classes/el.Session.html">el.Session</a></li>
   <li><a href="../classes/el.MidiPipe.html">el.MidiPipe</a></li>
 </ul>
@@ -65,6 +66,7 @@
   <li><a href="../examples/sysexui.lua.html">sysexui.lua</a></li>
   <li><a href="../examples/amp.lua.html">amp.lua</a></li>
   <li><a href="../examples/ampui.lua.html">ampui.lua</a></li>
+  <li><a href="../examples/channelize.lua.html">channelize.lua</a></li>
 </ul>
 
 </div>
@@ -78,8 +80,47 @@
 </p>
 
 
-<h2><a href="#Methods">Methods </a></h2>
+<h2><a href="#Attributes">Attributes</a></h2>
 <table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Node.name">Node.name</a></td>
+	<td class="summary">Node name.</td>
+	</tr>
+</table>
+<h2><a href="#Methods">Methods</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#Node:isvalid">Node:isvalid ()</a></td>
+	<td class="summary">Returns true if a valid node.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:isenabled">Node:isenabled ()</a></td>
+	<td class="summary">True if enabled.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:isbypassed">Node:isbypassed ()</a></td>
+	<td class="summary">True if bypassed.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:ismuted">Node:ismuted ()</a></td>
+	<td class="summary">True if muted.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:displayname">Node:displayname ()</a></td>
+	<td class="summary">Display name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:pluginname">Node:pluginname ()</a></td>
+	<td class="summary">Plugin name.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:isgraph">Node:isgraph ()</a></td>
+	<td class="summary">True if this node is a graph.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Node:isroot">Node:isroot ()</a></td>
+	<td class="summary">True if this node is a root graph.</td>
+	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Node:haseditor">Node:haseditor ()</a></td>
 	<td class="summary">Has custom editor.</td>
@@ -105,49 +146,180 @@
 	<td class="summary">Write node to file.</td>
 	</tr>
 </table>
-<h2><a href="#Attributes">Attributes</a></h2>
-<table class="function_list">
-	<tr>
-	<td class="name" nowrap><a href="#Node.valid">Node.valid</a></td>
-	<td class="summary">True if a valid node (readonly).</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Node.name">Node.name</a></td>
-	<td class="summary">Node name.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Node.missing">Node.missing</a></td>
-	<td class="summary">Is the node missing?.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Node.enabled">Node.enabled</a></td>
-	<td class="summary">True if enabled.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Node.muted">Node.muted</a></td>
-	<td class="summary">Is muted.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Node.bypassed">Node.bypassed</a></td>
-	<td class="summary">Is bypassed.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Node.displayname">Node.displayname</a></td>
-	<td class="summary">Display name.</td>
-	</tr>
-	<tr>
-	<td class="name" nowrap><a href="#Node.pluginname">Node.pluginname</a></td>
-	<td class="summary">Plugin name.</td>
-	</tr>
-</table>
 
 <br/>
 <br/>
 
 
-    <h2 class="section-header "><a name="Methods"></a>Methods </h2>
+    <h2 class="section-header "><a name="Attributes"></a>Attributes</h2>
 
     <dl class="function">
+    <dt>
+    <a name = "Node.name"></a>
+    <strong>Node.name</strong>
+    </dt>
+    <dd>
+    Node name.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+</dl>
+    <h2 class="section-header "><a name="Methods"></a>Methods</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "Node:isvalid"></a>
+    <strong>Node:isvalid ()</strong>
+    </dt>
+    <dd>
+    Returns true if a valid node.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:isenabled"></a>
+    <strong>Node:isenabled ()</strong>
+    </dt>
+    <dd>
+    True if enabled.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:isbypassed"></a>
+    <strong>Node:isbypassed ()</strong>
+    </dt>
+    <dd>
+    True if bypassed.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:ismuted"></a>
+    <strong>Node:ismuted ()</strong>
+    </dt>
+    <dd>
+    True if muted.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:displayname"></a>
+    <strong>Node:displayname ()</strong>
+    </dt>
+    <dd>
+    Display name.
+ Will be a user-defined name or name provided by the plugin.
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:pluginname"></a>
+    <strong>Node:pluginname ()</strong>
+    </dt>
+    <dd>
+    Plugin name.
+ Name provided by the plugin.
+
+    </ul>
+    </ul>
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><a class="type" href="https://www.lua.org/manual/5.1/manual.html#5.4">string</a></span>
+
+
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:isgraph"></a>
+    <strong>Node:isgraph ()</strong>
+    </dt>
+    <dd>
+    True if this node is a graph.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Node:isroot"></a>
+    <strong>Node:isroot ()</strong>
+    </dt>
+    <dd>
+    True if this node is a root graph.
+
+    </ul>
+    </ul>
+
+
+
+
+
+
+</dd>
     <dt>
     <a name = "Node:haseditor"></a>
     <strong>Node:haseditor ()</strong>
@@ -268,147 +440,13 @@
 
 </dd>
 </dl>
-    <h2 class="section-header "><a name="Attributes"></a>Attributes</h2>
-
-    <dl class="function">
-    <dt>
-    <a name = "Node.valid"></a>
-    <strong>Node.valid</strong>
-    </dt>
-    <dd>
-    True if a valid node (readonly).
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Node.name"></a>
-    <strong>Node.name</strong>
-    </dt>
-    <dd>
-    Node name.
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Node.missing"></a>
-    <strong>Node.missing</strong>
-    </dt>
-    <dd>
-    Is the node missing?.
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Node.enabled"></a>
-    <strong>Node.enabled</strong>
-    </dt>
-    <dd>
-    True if enabled.
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Node.muted"></a>
-    <strong>Node.muted</strong>
-    </dt>
-    <dd>
-    Is muted.
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Node.bypassed"></a>
-    <strong>Node.bypassed</strong>
-    </dt>
-    <dd>
-    Is bypassed.
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Node.displayname"></a>
-    <strong>Node.displayname</strong>
-    </dt>
-    <dd>
-    Display name.
- Will be a user-defined name or name provided by the plugin.
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-    <dt>
-    <a name = "Node.pluginname"></a>
-    <strong>Node.pluginname</strong>
-    </dt>
-    <dd>
-    Plugin name.
- Name provided by the plugin.
-
-    </ul>
-    </ul>
-
-
-
-
-
-
-</dd>
-</dl>
 
 
 </div> <!-- id="content" -->
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2021-07-03 08:14:05 </i>
+<i style="float:right;">Last updated 2021-07-19 21:07:00 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
